@@ -1,0 +1,49 @@
+{
+    "name": "devsagency/learn2code",
+    "version": "0.1.0",
+    "type": "library",
+    "description": "Learn to Code",
+    "keywords": [
+      "dev",
+      "html",
+      "css",
+      "javascript",
+      "php",
+      "sql",
+      "git"
+    ],
+    "homepage": "https://learn2code.devsagency.net",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Philippe Beck",
+        "email": "philippe@philippebeck.net",
+        "homepage": "https://philippebeck.net",
+        "role": "Lead Developer"
+      }
+    ],
+    "autoload": {
+      "psr-4": {
+        "App\\": "src/"
+      }
+    },
+    "require": {
+      "php": "7.3",
+      "devsagency/pam": "^4.6.0"
+    },
+    "require-dev": {
+      "tracy/tracy": "^2.7.5"
+    },
+    "config": {
+      "platform": {
+        "php": "7.3"
+      }
+    },
+    "support": {
+      "email": "admin@devsagency.net",
+      "issues": "https://github.com/devsagency/learn2code/issues",
+      "wiki": "https://github.com/devsagency/learn2code/wiki",
+      "source": "https://github.com/devsagency/learn2code"
+    }
+  }
+  
