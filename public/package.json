@@ -1,0 +1,28 @@
+{
+  "name": "learn2code",
+  "description": "Learn to Code",
+  "keywords": [
+    "dev",
+    "html",
+    "css",
+    "javascript",
+    "php",
+    "sql",
+    "git"
+  ],
+  "license": "MIT",
+  "main": "index.php",
+  "homepage": "https://learn2code.devsagency.net",
+  "repository": "github:devsagency/learn2code",
+  "bugs": "https://github.com/devsagency/learn2code/issues",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "animadio": "^2.4.5",
+    "animadio.js": "^0.1.18"
+  },
+  "author": {
+    "name": "Philippe Beck",
+    "email": "philippe@philippebeck.net",
+    "url": "https://philippebeck.net"
+  }
+}
