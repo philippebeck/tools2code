@@ -1,0 +1,6 @@
+config/dev-params.php
+config/prod-params.php
+config/user.sql
+public/img/
+public/node_modules/
+vendor/
