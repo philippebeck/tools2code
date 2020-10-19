@@ -23,6 +23,7 @@ class UsersController extends MainController
     {
         $this->user["name"]     = $this->getPost()->getPostVar("name");
         $this->user["email"]    = $this->getPost()->getPostVar("email");
+        $this->user["admin"]    = 0;
     }
 
     private function setUserImage()
