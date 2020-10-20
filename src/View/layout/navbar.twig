@@ -4,13 +4,13 @@
     <input id="navbar-open" type="radio" name="navbar">
 
     {% if (isLogged()) %}
-        <a class="anima-slipR" href="{{ url('admin') }}" title="{{ getUserVar('name') }} Admin">
-            <img class="bord-circle" src="img/user/{{ getUserVar('image') }}" alt="{{ getUserVar('name') }} Picture">
-        </a>
+    <a class="anima-slipR" href="{{ url('admin') }}" title="{{ getUserVar('name') }} Admin">
+        <img class="bord-circle" src="img/user/{{ getUserVar('image') }}" alt="{{ getUserVar('name') }} Picture">
+    </a>
     {% else %}
-        <a class="anima-slipR" href="{{ url('auth') }}" title="Admin Login Only">
-            <img class="cursor-none" src="img/phi.png" alt="Logo Phi">
-        </a>
+    <a class="anima-slipR" href="{{ url('auth') }}" title="Admin Login Only">
+        <img class="cursor-none" src="img/phi.png" alt="Logo Phi">
+    </a>
     {% endif %}
     <ul>
         <li>
@@ -20,21 +20,21 @@
             </a>
         </li>
         <li>
-            <a href="{{ url('courses') }}" accesskey="c" title="Development Courses">
+            <a href="{{ url('courses') }}" accesskey="c" title="Learn2Code Courses">
                 <i class="fas fa-chalkboard-teacher fa-lg"></i>
                 <span>Courses</span>
             </a>
         </li>
         <li>
-            <a href="{{ url('resources') }}" accesskey="r" title="Development Resources">
-                <i class="fas fa-box-open fa-lg"></i>
-                <span>Resources</span>
+            <a href="{{ url('exercises') }}" accesskey="e" title="Learn2Code Exercises">
+                <i class="fas fa-laptop-code fa-lg"></i>
+                <span>Exercises</span>
             </a>
         </li>
-                <li>
-            <a href="{{ url('training') }}" accesskey="t" title="Development Training">
-                <i class="fas fa-laptop-code fa-lg"></i>
-                <span>Training</span>
+        <li>
+            <a href="{{ url('resources') }}" accesskey="r" title="Learn2Code Resources">
+                <i class="fas fa-box-open fa-lg"></i>
+                <span>Resources</span>
             </a>
         </li>
     </ul>
