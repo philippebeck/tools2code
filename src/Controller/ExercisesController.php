@@ -8,10 +8,10 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class TrainingController
+ * Class ExercisesController
  * @package App\Controller
  */
-class TrainingController extends MainController
+class ExercisesController extends MainController
 {
     /**
      * @return string
@@ -21,7 +21,7 @@ class TrainingController extends MainController
      */
     public function defaultMethod()
     {
-        return $this->render("front/training/training.twig");
+        return $this->render("front/exercises/exercises.twig");
     }
     
     /**
@@ -37,13 +37,13 @@ class TrainingController extends MainController
         }
 
         if (!empty($this->getPost()->getPostArray())) {
-            $training = $this->getPost()->getPostArray();
+            $exercise = $this->getPost()->getPostArray();
 
-            ModelFactory::getModel("Training")->createData($training);
-            $this->getSession()->createAlert("New Training successfully created !", "green");
+            ModelFactory::getModel("Exercises")->createData($exercise);
+            $this->getSession()->createAlert("New Exercise successfully created !", "green");
         }
 
-        return $this->render("back/training/createTraining.twig");
+        return $this->render("back/exercises/createExercise.twig");
     }
 
     /**
@@ -59,17 +59,17 @@ class TrainingController extends MainController
         }
 
         if (!empty($this->getPost()->getPostArray())) {
-            $training = $this->getPost()->getPostArray();
+            $exercise = $this->getPost()->getPostArray();
 
-            ModelFactory::getModel("Training")->updateData($this->getGet()->getGetVar("id"), $training);
-            $this->getSession()->createAlert("Successful modification of the selected Training !", "blue");
+            ModelFactory::getModel("Exercises")->updateData($this->getGet()->getGetVar("id"), $exercise);
+            $this->getSession()->createAlert("Successful modification of the selected Exercise !", "blue");
 
             $this->redirect("admin");
         }
 
-        $training = ModelFactory::getModel("Method")->readData($this->getGet()->getGetVar("id"));
+        $exercises = ModelFactory::getModel("Exercises")->readData($this->getGet()->getGetVar("id"));
 
-        return $this->render("back/training/updateTraining.twig", ["training" => $training]);
+        return $this->render("back/exercises/updateExercise.twig", ["exercise" => $exercise]);
     }
 
     public function deleteMethod()
@@ -78,8 +78,8 @@ class TrainingController extends MainController
             $this->redirect("home");
         }
 
-        ModelFactory::getModel("Training")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Training permanently deleted !", "red");
+        ModelFactory::getModel("Exercises")->deleteData($this->getGet()->getGetVar("id"));
+        $this->getSession()->createAlert("Exercise permanently deleted !", "red");
 
         $this->redirect("admin");
 
