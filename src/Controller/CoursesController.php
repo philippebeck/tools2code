@@ -67,7 +67,7 @@ class CoursesController extends MainController
             $this->redirect("admin");
         }
 
-        $course = ModelFactory::getModel("Method")->readData($this->getGet()->getGetVar("id"));
+        $course = ModelFactory::getModel("Courses")->readData($this->getGet()->getGetVar("id"));
 
         return $this->render("back/courses/updateCourse.twig", ["course" => $course]);
     }
