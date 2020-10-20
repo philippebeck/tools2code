@@ -27,14 +27,14 @@ class AdminController extends MainController
         }
 
         $courses    = ModelFactory::getModel("Courses")->listData();
-        $resources  = ModelFactory::getModel("Resources")->listData();
         $exercises  = ModelFactory::getModel("Exercises")->listData();
+        $resources  = ModelFactory::getModel("Resources")->listData();
         $users      = ModelFactory::getModel("Users")->listData();
 
         return $this->render("back/admin.twig", [
             "courses"   => $courses,
-            "resources" => $resources,
             "exercises" => $exercises,
+            "resources" => $resources,
             "users"     => $users
         ]);
     }
