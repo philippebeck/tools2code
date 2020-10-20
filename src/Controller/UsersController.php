@@ -19,6 +19,17 @@ class UsersController extends MainController
      */
     private $user = [];
 
+        /**
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function defaultMethod()
+    {
+        return $this->render("front/user.twig");
+    }
+
     private function setUserData()
     {
         $this->user["name"]     = $this->getPost()->getPostVar("name");

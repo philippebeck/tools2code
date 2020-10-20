@@ -67,7 +67,7 @@ class ResourcesController extends MainController
             $this->redirect("admin");
         }
 
-        $resource = ModelFactory::getModel("Method")->readData($this->getGet()->getGetVar("id"));
+        $resource = ModelFactory::getModel("Resources")->readData($this->getGet()->getGetVar("id"));
 
         return $this->render("back/resources/updateResource.twig", ["resource" => $resource]);
     }
