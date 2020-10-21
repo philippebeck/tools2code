@@ -2,6 +2,6 @@
 
 var onloadCallback = function() {
     grecaptcha.render("recaptcha", {
-        "sitekey" : ""
+        "sitekey" : "6LdTBtoZAAAAADITfTTXpjsctFXZqKXZc-seM9ZL"
     });
 };
