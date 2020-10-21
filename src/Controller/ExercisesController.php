@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
+use Pam\Model\Factory\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -21,7 +22,9 @@ class ExercisesController extends MainController
      */
     public function defaultMethod()
     {
-        return $this->render("front/exercises/exercises.twig");
+        $allExercises = ModelFactory::getModel("Exercises")->listData();
+
+        return $this->render("front/exercises/listExercises.twig", ["allExercises" => $allExercises]);
     }
     
     /**
@@ -44,6 +47,19 @@ class ExercisesController extends MainController
         }
 
         return $this->render("back/exercises/createExercise.twig");
+    }
+    
+    /**
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function readMethod()
+    {
+        $exercise = ModelFactory::getModel("Exercises")->readData($this->getGet()->getGetVar("id"));
+
+        return $this->render("front/exercises/readExercise.twig", ["exercise" => $exercise]);
     }
 
     /**
