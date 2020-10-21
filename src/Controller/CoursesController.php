@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
+use Pam\Model\Factory\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -21,7 +22,9 @@ class CoursesController extends MainController
      */
     public function defaultMethod()
     {
-        return $this->render("front/courses/courses.twig");
+        $allCourses = ModelFactory::getModel("Courses")->listData();
+
+        return $this->render("front/courses/listCourses.twig", ["allCourses" => $allCourses]);
     }
 
     /**
@@ -44,6 +47,19 @@ class CoursesController extends MainController
         }
 
         return $this->render("back/courses/createCourse.twig");
+    }
+
+    /**
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function readMethod()
+    {
+        $course = ModelFactory::getModel("Courses")->readData($this->getGet()->getGetVar("id"));
+
+        return $this->render("front/courses/readCourse.twig", ["course" => $course]);
     }
 
     /**
