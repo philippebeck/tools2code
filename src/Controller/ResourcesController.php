@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
+use Pam\Model\Factory\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -21,7 +22,9 @@ class ResourcesController extends MainController
      */
     public function defaultMethod()
     {
-        return $this->render("front/resources/resources.twig");
+        $allResources = ModelFactory::getModel("Resources")->listData();
+
+        return $this->render("front/resources/listResources.twig", ["allResources" => $allResources]);
     }
 
     /**
@@ -44,6 +47,19 @@ class ResourcesController extends MainController
         }
 
         return $this->render("back/resources/createResource.twig");
+    }
+
+    /**
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function readMethod()
+    {
+        $resource = ModelFactory::getModel("Resources")->readData($this->getGet()->getGetVar("id"));
+
+        return $this->render("front/resources/readResource.twig", ["resource" => $resource]);
     }
 
     /**
