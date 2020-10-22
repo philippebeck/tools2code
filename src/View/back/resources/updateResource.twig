@@ -17,8 +17,16 @@
                         <input id="name" name="name" type="text" maxlength="20" required value="{{ resource.name }}">
                     </li>
                     <li>
-                        <label for="content">Content*</label>
-                        <textarea id="content" name="content" rows="15" cols="30" required>{{ resource.content }}</textarea>
+                        <label for="link">Link*</label>
+                        <input id="link" name="link" type="text" maxlength="100" required value="{{ resource.link }}">
+                    </li>
+                    <li>
+                        <label for="category">Category*</label>
+                        <input id="category" name="category" type="text" maxlength="10" required value="{{ resource.category }}">
+                    </li>
+                    <li>
+                        <label for="description">Description*</label>
+                        <textarea id="description" name="description" rows="15" cols="30" required>{{ resource.description }}</textarea>
                     </li>
                 </ul>
                 <ul>

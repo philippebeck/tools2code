@@ -128,8 +128,17 @@
             <tbody>
                 {% for resource in allResources %}
                 <tr>
-                    <td>{{ resource.name }}</td>
-                    <td>{{ resource.content }}</td>
+                    <td>
+                        <a href="https://{{ resource.link }}" title="https://{{ resource.link }}">
+                            {{ resource.name }}
+                            <hr>{{ resource.category }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://{{ resource.link }}" title="https://{{ resource.link }}">
+                            {{ resource.description }}
+                        </a>
+                    </td>
                     <td>
                         <a class="btn-blue" href="{{ url('resources!update', {'id': resource.id}) }}"
                             title="Clic to update this resource">
