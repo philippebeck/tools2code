@@ -44,7 +44,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for course in courses %}
+                {% for course in allCourses %}
                 <tr>
                     <td>{{ course.name }}</td>
                     <td>{{ course.content }}</td>
@@ -85,7 +85,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for exercise in exercises %}
+                {% for exercise in allExercises %}
                 <tr>
                     <td>{{ exercise.name }}</td>
                     <td>{{ exercise.content }}</td>
@@ -126,7 +126,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for resource in resources %}
+                {% for resource in allResources %}
                 <tr>
                     <td>{{ resource.name }}</td>
                     <td>{{ resource.content }}</td>
@@ -167,7 +167,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for user in users %}
+                {% for user in allUsers %}
                 <tr>
                     <td>
                         <figure>
@@ -178,7 +178,7 @@
                     </td>
                     <td>{{ user.email }}</td>
                     <td>
-                        <a class="btn-orange" href="{{ url('auth!logout') }}">
+                        <a class="btn-orange" href="{{ url('users!logout') }}">
                             <i class="fas fa-sign-out-alt fa-fw fa-lg"></i>
                         </a>
                         <a class="btn-blue" href="{{ url('users!update', {'id': user.id}) }}"
