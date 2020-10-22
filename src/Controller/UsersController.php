@@ -46,16 +46,16 @@ class UsersController extends MainController
         if (!empty($this->getPost()->getPostArray())) {
             $this->user = $this->getPost()->getPostArray();
 
-            /*if (isset($this->user["g-recaptcha-response"]) && !empty($this->user["g-recaptcha-response"])) {
+            if (isset($this->user["g-recaptcha-response"]) && !empty($this->user["g-recaptcha-response"])) {
 
                 if ($this->getSecurity()->checkRecaptcha($this->user["g-recaptcha-response"])) {
-                    */$this->checkLogin();/*
+                    $this->checkLogin();
                 }
             }
 
             $this->getSession()->createAlert("Check the reCAPTCHA !", "red");
 
-            $this->redirect("users");*/
+            $this->redirect("users");
         }
 
         return $this->render("front/login.twig");
