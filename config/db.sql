@@ -9,8 +9,7 @@ CREATE TABLE `Users`
     `name`  VARCHAR(50)     NOT NULL,
     `image` VARCHAR(50)     UNIQUE,
     `email` VARCHAR(100)    NOT NULL    UNIQUE,
-    `pass`  VARCHAR(100)    NOT NULL,
-    `admin` TINYINT(1)      NOT NULL
+    `pass`  VARCHAR(100)    NOT NULL
 )
     ENGINE=INNODB DEFAULT CHARSET=utf8;
 
