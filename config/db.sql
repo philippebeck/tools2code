@@ -34,14 +34,14 @@ CREATE TABLE `Resources`
   `id`          SMALLINT        UNSIGNED    PRIMARY KEY AUTO_INCREMENT,
   `name`        VARCHAR(50)     NOT NULL    UNIQUE,
   `link`        VARCHAR(100)    NOT NULL    UNIQUE,
-  `language`    VARCHAR(10)     NOT NULL,
-  `category`    VARCHAR(10)     NOT NULL,
+  `technology`  VARCHAR(10)     NOT NULL,
+  `category`    VARCHAR(20)     NOT NULL,
   `description` TEXT
 )
 ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 INSERT INTO `Resources`
-(`name`,                                `link`,                                                 `language`,     `category`,         `description`)
+(`name`,                                `link`,                                                 `technology`,   `category`,         `description`)
 VALUES
 ('HTML Living Standard of W3C',         'html.spec.whatwg.org/multipage',                       'html',         'Specifications',   'HTML is the World Wide Web core markup language. Originally, HTML was primarily designed as a language for semantically describing scientific documents. Its general design, however, has enabled it to be adapted, over the subsequent years, to describe a number of other types of documents and even applications.'),
 ('HTML Elements Reference of MDN',      'developer.mozilla.org/en-US/docs/Web/HTML/Element',    'html',         'Specifications',   'This page lists all the HTML elements, which are created using tags. They are grouped by function to help you find what you have in mind easily. An alphabetical list of all elements is provided in the sidebar on every element page as well as this one.'),
