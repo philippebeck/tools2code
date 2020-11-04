@@ -8,6 +8,13 @@ body {
   background-image: url("../img/bg.jpg");
 }
 
-main {
+.table {
+  --table-row-even-hover-background-color: var(--magenta-light);
+  --table-row-odd-hover-background-color: var(--blue-light);
+  --table-row-even-hover-color: var(--black);
+  --table-row-odd-hover-color: var(--black);
+}
+
+.gradient {
   background-image: linear-gradient(var(--white), var(--purple));
 }

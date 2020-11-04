@@ -22,9 +22,9 @@ class ResourcesController extends MainController
      */
     public function defaultMethod()
     {
-        $allResources = ModelFactory::getModel("Resources")->listData();
+        $allResources = $this->getArray()->getArrayElements(ModelFactory::getModel("Resources")->listData(), "technology");
 
-        return $this->render("front/resources/listResources.twig", ["allResources" => $allResources]);
+        return $this->render("front/resources/listResources.twig",["allResources" => $allResources]);
     }
 
     /**
@@ -57,9 +57,10 @@ class ResourcesController extends MainController
      */
     public function readMethod()
     {
-        $resource = ModelFactory::getModel("Resources")->readData($this->getGet()->getGetVar("id"));
+        $allResources   = $this->getArray()->getArrayElements(ModelFactory::getModel("Resources")->listData($this->getGet()->getGetVar("technology")), "technology");
+        $resources      = $this->getArray()->getArrayElements($allResources[$this->getGet()->getGetVar("technology")]);
 
-        return $this->render("front/resources/readResource.twig", ["resource" => $resource]);
+        return $this->render("front/resources/readResource.twig", ["resources" => $resources]);
     }
 
     /**
