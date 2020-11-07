@@ -1,7 +1,7 @@
 {
     "name": "devsagency/learn2code",
-    "version": "0.1.5",
-    "type": "library",
+    "version": "0.1.6",
+    "type": "project",
     "description": "Learn to Code",
     "keywords": [
       "dev",
