@@ -8,10 +8,12 @@
 <main>
     <section>
         <h2>Technologies Available</h2>
-            <ul>
+            <ul class="row">
                 {% for technology in allResources|keys %}
                 <li>
-                    <a class="btn-blue" href="{{ url('resources!read', {'technology': technology}) }}">{{ technology }}</a>
+                    <a class="btn-blue" href="{{ url('resources!read', {'technology': technology}) }}">
+                        <h3 class="mar-none">{{ technology }}</h3>
+                    </a>
                 </li>
                 {% endfor %}
             </ul>
