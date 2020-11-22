@@ -5,20 +5,16 @@
 }
 
 body {
-  background-image: url("../img/bg.jpg");
+  background-color: var(--silver-light);
 }
 
 .table {
-  --table-row-even-hover-background-color: var(--magenta-light);
-  --table-row-odd-hover-background-color: var(--blue-light);
+  --table-row-even-hover-background-color: var(--violet);
+  --table-row-odd-hover-background-color: var(--sky);
   --table-row-even-hover-color: var(--black);
   --table-row-odd-hover-color: var(--black);
 }
 
 .foot-visual {
   --foot-visual-padding: 0;
-}
-
-.gradient {
-  background-image: linear-gradient(var(--white), var(--purple));
 }
