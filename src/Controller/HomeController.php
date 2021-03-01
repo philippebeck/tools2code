@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
+use Pam\Model\Factory\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -21,6 +22,8 @@ class HomeController extends MainController
      */
     public function defaultMethod()
     {
-        return $this->render("front/home.twig");
+        $allResources = $this->getArray()->getArrayElements(ModelFactory::getModel("Resources")->listData(), "technology");
+
+        return $this->render("front/home.twig", ["allResources" => $allResources]);
     }
 }

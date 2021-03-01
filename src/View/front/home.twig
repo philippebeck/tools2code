@@ -6,26 +6,43 @@
 
 {% block main %}
 <main class="container-90tn-80md-70wd pad-md mar-bot-lg bg-white color-navy bord-rounded gradient">
-    <h2>Learn2Code</h2>
-
-    <p>Learn2Code is here to give <strong>Courses, Exercises & Resources</strong> to anyone who wants to learn to code !</p>
+    <p>Tools2Code propose des <strong>Ressources</strong> pour toute personne qui souhaite apprendre à coder !</p>
 
     <ul class="row">
         <li>
-            <a class="btn-red" href="{{ url('courses') }}" accesskey="c" title="Learn2Code Courses">
-                <i class="fas fa-chalkboard-teacher fa-2x"></i>Courses
+            <a class="button-orange" href="{{ url('resources', {'technology': 'HTML'}) }}" accesskey="h" title="Ressources HTML">
+                <i class="fab fa-html5 fa-4x"></i>
+                <span>HTML</span>
             </a>
         </li>
         <li>
-            <a class="btn-green" href="{{ url('exercises') }}" accesskey="e" title="Learn2Code Exercises">
-                <i class="fas fa-laptop-code fa-2x"></i>
-                <span>Exercises</span>
+            <a class="button-blue" href="{{ url('resources', {'technology': 'CSS'}) }}" accesskey="c" title="Ressources CSS">
+                <i class="fab fa-css3-alt fa-4x"></i>
+                <span>CSS</span>
             </a>
         </li>
         <li>
-            <a class="btn-blue" href="{{ url('resources') }}" accesskey="r" title="Learn2Code Resources">
-                <i class="fas fa-box-open fa-2x"></i>
-                <span>Resources</span>
+            <a class="button-gold" href="{{ url('resources', {'technology': 'JavaScript'}) }}" accesskey="j" title="Ressources JavaScript">
+                <i class="fab fa-js-square fa-4x"></i>
+                <span>JS</span>
+            </a>
+        </li>
+        <li>
+            <a class="button-sky" href="{{ url('resources', {'technology': 'PHP'}) }}" accesskey="p" title="Ressources PHP">
+                <i class="fab fa-php fa-4x"></i>
+                <span>PHP</span>
+            </a>
+        </li>
+        <li>
+            <a class="button-navy" href="{{ url('resources', {'technology': 'SQL'}) }}" accesskey="s" title="Ressources SQL">
+                <i class="fas fa-database fa-4x"></i>
+                <span>SQL</span>
+            </a>
+        </li>
+                <li>
+            <a class="button" href="{{ url('resources', {'technology': 'Git'}) }}" accesskey="g" title="Ressources Git">
+                <i class="fab fa-git-alt fa-4x"></i>
+                <span>Git</span>
             </a>
         </li>
     </ul>
