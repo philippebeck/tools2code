@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS `learn2code`;
-CREATE DATABASE `learn2code` CHARACTER SET utf8;
+DROP DATABASE IF EXISTS `tools2code`;
+CREATE DATABASE `tools2code` CHARACTER SET utf8;
 
-USE `learn2code`;
+USE `tools2code`;
 
 CREATE TABLE `Users`
 (
@@ -12,22 +12,6 @@ CREATE TABLE `Users`
     `pass`  VARCHAR(100)    NOT NULL
 )
     ENGINE=INNODB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `Courses`
-(
-  `id`      SMALLINT        UNSIGNED    PRIMARY KEY AUTO_INCREMENT,
-  `name`    VARCHAR(20)     NOT NULL    UNIQUE,
-  `content` TEXT
-)
-ENGINE=INNODB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `Exercises`
-(
-  `id`      SMALLINT        UNSIGNED    PRIMARY KEY AUTO_INCREMENT,
-  `name`    VARCHAR(20)     NOT NULL    UNIQUE,
-  `content` TEXT
-)
-ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `Resources`
 (
