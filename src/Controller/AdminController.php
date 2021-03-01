@@ -26,14 +26,10 @@ class AdminController extends MainController
             $this->redirect("home");
         }
 
-        $allCourses     = ModelFactory::getModel("Courses")->listData();
-        $allExercises   = ModelFactory::getModel("Exercises")->listData();
         $allResources   = ModelFactory::getModel("Resources")->listData();
         $allUsers       = ModelFactory::getModel("Users")->listData();
 
         return $this->render("back/admin.twig", [
-            "allCourses"    => $allCourses,
-            "allExercises"  => $allExercises,
             "allResources"  => $allResources,
             "allUsers"      => $allUsers
         ]);
