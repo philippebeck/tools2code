@@ -5,13 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}Tools2Code - {{ block('subtitle') }}{% endblock %}</title>
+    <title>{{ block('title') }}</title>
 
     <link rel="canonical" href="{% block canonical %}https://tools2code.devsagency.net{% endblock %}">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
-    <meta name="description"
-        content="{% block description %}Tools2Code : Tools to Code - {{ block('subtitle') }} : {{ block('summary') }}{% endblock %}">
+    <meta name="description" content="{{ block('description') }}">
     <meta name="author" content="Philippe Beck}">
 
     <meta property="og:type" content="website">
@@ -20,7 +19,7 @@
     <meta property="og:description" content="{{ block('description') }}">
     <meta property="og:image" content="{% block image %}{% endblock %}">
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="description">
     <meta name="twitter:title" content="{{ block('title') }}">
     <meta name="twitter:site" content="{{ block('canonical') }}">
     <meta name="twitter:description" content="{{ block('description') }}">
@@ -49,7 +48,7 @@
         <p id="alert" class="bg-{{ getAlertType() }} color-white">{{ getAlertMessage() }}</p>
         {% endif %}
 
-        <h1 class="color-purple">{{ block('subtitle') }}</h1>
+        <h1 class="color-purple">{{ block('title') }}</h1>
     </header>
 
     {% block main %}{% endblock %}
