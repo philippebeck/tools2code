@@ -1,10 +1,11 @@
 {
-    "name": "devsagency/learn2code",
-    "version": "0.1.8",
+    "name": "devsagency/tools2code",
+    "version": "0.2.0",
     "type": "project",
-    "description": "Learn to Code",
+    "description": "Tools to Code",
     "keywords": [
       "dev",
+      "tools",
       "html",
       "css",
       "javascript",
@@ -12,7 +13,7 @@
       "sql",
       "git"
     ],
-    "homepage": "https://learn2code.devsagency.net",
+    "homepage": "https://tools2code.devsagency.net",
     "license": "MIT",
     "authors": [
       {
@@ -41,9 +42,9 @@
     },
     "support": {
       "email": "admin@devsagency.net",
-      "issues": "https://github.com/devsagency/learn2code/issues",
-      "wiki": "https://github.com/devsagency/learn2code/wiki",
-      "source": "https://github.com/devsagency/learn2code"
+      "issues": "https://github.com/devsagency/tools2code/issues",
+      "wiki": "https://github.com/devsagency/tools2code/wiki",
+      "source": "https://github.com/devsagency/tools2code"
     }
   }
   
