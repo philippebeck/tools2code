@@ -8,33 +8,51 @@
         <img class="bord-circle" src="img/user/{{ getUserVar('image') }}" alt="{{ getUserVar('name') }} Picture">
     </a>
     {% else %}
-    <a class="anima-slipR" href="{{ url('users') }}" title="Admin Login Only">
+    <a class="anima-slipR" href="{{ url('users') }}" title="Admin Login">
         <img class="cursor-none" src="img/logo.svg" alt="Logo DevsAgency">
     </a>
     {% endif %}
     <ul>
         <li>
-            <a href="./" accesskey="h" title="Learn2Code Homepage">
+            <a href="./" accesskey="h" title="Accueil">
                 <i class="fas fa-laptop-house fa-lg"></i>
                 <span>Home</span>
             </a>
         </li>
         <li>
-            <a href="{{ url('courses') }}" accesskey="c" title="Learn2Code Courses">
-                <i class="fas fa-chalkboard-teacher fa-lg"></i>
-                <span>Courses</span>
+            <a href="{{ url('resources', {'technology': 'HTML'}) }}" accesskey="h" title="Ressources HTML">
+                <i class="fab fa-html5 fa-lg"></i>
+                <span>HTML</span>
             </a>
         </li>
         <li>
-            <a href="{{ url('exercises') }}" accesskey="e" title="Learn2Code Exercises">
-                <i class="fas fa-laptop-code fa-lg"></i>
-                <span>Exercises</span>
+            <a href="{{ url('resources', {'technology': 'CSS'}) }}" accesskey="c" title="Ressources CSS">
+                <i class="fab fa-css3-alt fa-lg"></i>
+                <span>CSS</span>
             </a>
         </li>
         <li>
-            <a href="{{ url('resources') }}" accesskey="r" title="Learn2Code Resources">
-                <i class="fas fa-box-open fa-lg"></i>
-                <span>Resources</span>
+            <a href="{{ url('resources', {'technology': 'JavaScript'}) }}" accesskey="j" title="Ressources JavaScript">
+                <i class="fab fa-js-square fa-lg"></i>
+                <span>JS</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('resources', {'technology': 'PHP'}) }}" accesskey="p" title="Ressources PHP">
+                <i class="fab fa-php fa-lg"></i>
+                <span>PHP</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('resources', {'technology': 'SQL'}) }}" accesskey="s" title="Ressources SQL">
+                <i class="fas fa-database fa-lg"></i>
+                <span>SQL</span>
+            </a>
+        </li>
+                <li>
+            <a href="{{ url('resources', {'technology': 'Git'}) }}" accesskey="g" title="Ressources Git">
+                <i class="fab fa-git-alt fa-lg"></i>
+                <span>Git</span>
             </a>
         </li>
     </ul>
@@ -46,13 +64,13 @@
             </a>
         </li>
         <li>
-            <a class="color-pp-onto" href="https://www.paypal.me/philippebeck" title="Donation">
-                <i class="fab fa-paypal fa-lg"></i>
+            <a class="color-magenta-onto" href="https://github.com/sponsors/philippebeck" title="Sponsor">
+                <i class="far fa-heart fa-lg"></i>
             </a>
         </li>
         <li>
-            <a class="color-magenta-onto" href="https://github.com/sponsors/philippebeck" title="Sponsor">
-                <i class="far fa-heart fa-lg"></i>
+            <a class="color-pp-onto" href="https://www.paypal.me/philippebeck" title="Donation">
+                <i class="fab fa-paypal fa-lg"></i>
             </a>
         </li>
     </ul>

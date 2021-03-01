@@ -22,9 +22,14 @@ class ResourcesController extends MainController
      */
     public function defaultMethod()
     {
-        $allResources = $this->getArray()->getArrayElements(ModelFactory::getModel("Resources")->listData(), "technology");
+        $allResources   = $this->getArray()->getArrayElements(ModelFactory::getModel("Resources")->listData($this->getGet()->getGetVar("technology")), "technology");
+        $resources      = $this->getArray()->getArrayElements($allResources[$this->getGet()->getGetVar("technology")]);
+        $technology     = $this->getGet()->getGetVar("technology");
 
-        return $this->render("front/resources/listResources.twig",["allResources" => $allResources]);
+        return $this->render("front/resource.twig", [
+            "resources"     => $resources,
+            "technology"    => $technology
+        ]);
     }
 
     /**
@@ -47,20 +52,6 @@ class ResourcesController extends MainController
         }
 
         return $this->render("back/resources/createResource.twig");
-    }
-
-    /**
-     * @return string
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
-     */
-    public function readMethod()
-    {
-        $allResources   = $this->getArray()->getArrayElements(ModelFactory::getModel("Resources")->listData($this->getGet()->getGetVar("technology")), "technology");
-        $resources      = $this->getArray()->getArrayElements($allResources[$this->getGet()->getGetVar("technology")]);
-
-        return $this->render("front/resources/readResource.twig", ["resources" => $resources]);
     }
 
     /**
