@@ -6,43 +6,50 @@
 
 {% block main %}
 <main class="container-90tn-80md-70wd pad-md mar-bot-lg bg-white color-navy bord-rounded gradient">
-    <p>Tools2Code propose des <strong>Ressources</strong> pour toute personne qui souhaite apprendre à coder !</p>
+    <p>Tools2Code propose des <strong>Ressources</strong> pour toute personne qui code ou qui apprend à coder !</p>
 
     <ul class="row">
         <li>
-            <a class="button-orange" href="{{ url('resources', {'technology': 'HTML'}) }}" accesskey="h" title="Ressources HTML">
-                <i class="fab fa-html5 fa-4x"></i>
+            <a class="button-tomato" href="{{ url('resources', {'technology': 'HTML'}) }}" accesskey="h" title="Ressources HTML">
+                <i class="fab fa-html5 fa-4x fa-fw"></i>
                 <span>HTML</span>
             </a>
         </li>
         <li>
             <a class="button-blue" href="{{ url('resources', {'technology': 'CSS'}) }}" accesskey="c" title="Ressources CSS">
-                <i class="fab fa-css3-alt fa-4x"></i>
+                <i class="fab fa-css3-alt fa-4x fa-fw"></i>
                 <span>CSS</span>
             </a>
         </li>
         <li>
             <a class="button-gold" href="{{ url('resources', {'technology': 'JavaScript'}) }}" accesskey="j" title="Ressources JavaScript">
-                <i class="fab fa-js-square fa-4x"></i>
+                <i class="fab fa-js-square fa-4x fa-fw"></i>
                 <span>JS</span>
             </a>
         </li>
         <li>
             <a class="button-sky" href="{{ url('resources', {'technology': 'PHP'}) }}" accesskey="p" title="Ressources PHP">
-                <i class="fab fa-php fa-4x"></i>
+                <i class="fab fa-php fa-4x fa-fw"></i>
                 <span>PHP</span>
             </a>
         </li>
         <li>
             <a class="button-navy" href="{{ url('resources', {'technology': 'SQL'}) }}" accesskey="s" title="Ressources SQL">
-                <i class="fas fa-database fa-4x"></i>
+                <i class="fas fa-database fa-4x fa-fw"></i>
                 <span>SQL</span>
             </a>
         </li>
                 <li>
             <a class="button" href="{{ url('resources', {'technology': 'Git'}) }}" accesskey="g" title="Ressources Git">
-                <i class="fab fa-git-alt fa-4x"></i>
+                <i class="fab fa-git-alt fa-4x fa-fw"></i>
                 <span>Git</span>
+            </a>
+        </li>
+        </li>
+                <li>
+            <a class="button-green" href="{{ url('resources', {'technology': 'Media'}) }}" accesskey="m" title="Ressources Media">
+                <i class="fas fa-file-image fa-4x fa-fw"></i>
+                <span>Media</span>
             </a>
         </li>
     </ul>
