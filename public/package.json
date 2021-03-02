@@ -1,6 +1,6 @@
 {
-  "name": "learn2code",
-  "description": "Learn to Code",
+  "name": "tools2code",
+  "description": "Tools for Coding",
   "keywords": [
     "dev",
     "html",
@@ -12,9 +12,9 @@
   ],
   "license": "MIT",
   "main": "index.php",
-  "homepage": "https://learn2code.devsagency.net",
-  "repository": "github:devsagency/learn2code",
-  "bugs": "https://github.com/devsagency/learn2code/issues",
+  "homepage": "https://tools2code.devsagency.net",
+  "repository": "github:devsagency/tools2code",
+  "bugs": "https://github.com/devsagency/tools2code/issues",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
     "animadio": "^3.0.0",
