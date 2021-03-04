@@ -5,53 +5,108 @@
 {% block description %}Tools2Code est un site de ressources pour l'apprentissage du Dévelopement Informatique en HTML, CSS, JavaScript, PHP, SQL & Git{% endblock %}
 
 {% block main %}
-<main class="container-90tn-80md-70wd pad-md mar-bot-lg bg-white color-navy bord-rounded gradient">
-    <p>Tools2Code propose des <strong>Ressources</strong> pour toute personne qui code ou qui apprend à coder !</p>
+<main>
+    <header class="font-monospace">
+        <p>Tools2Code propose des <strong>Ressources</strong> pour toute personne qui code ou qui apprend à coder !</p>
+    </header>
 
-    <ul class="row">
-        <li>
-            <a class="button-tomato" href="{{ url('resources', {'technology': 'HTML'}) }}" title="Voir les Ressources HTML">
-                <i class="fab fa-html5 fa-4x fa-fw"></i>
-                <span>HTML</span>
-            </a>
-        </li>
-        <li>
-            <a class="button-blue" href="{{ url('resources', {'technology': 'CSS'}) }}" title="Voir les Ressources CSS">
-                <i class="fab fa-css3-alt fa-4x fa-fw"></i>
-                <span>CSS</span>
-            </a>
-        </li>
-        <li>
-            <a class="button-gold" href="{{ url('resources', {'technology': 'JS'}) }}" title="Voir les Ressources JavaScript">
-                <i class="fab fa-js-square fa-4x fa-fw"></i>
-                <span>JS</span>
-            </a>
-        </li>
-        <li>
-            <a class="button-sky" href="{{ url('resources', {'technology': 'PHP'}) }}" title="Voir les Ressources PHP">
-                <i class="fab fa-php fa-4x fa-fw"></i>
-                <span>PHP</span>
-            </a>
-        </li>
-        <li>
-            <a class="button-navy" href="{{ url('resources', {'technology': 'SQL'}) }}" title="Voir les Ressources SQL">
-                <i class="fas fa-database fa-4x fa-fw"></i>
-                <span>SQL</span>
-            </a>
-        </li>
-                <li>
-            <a class="button" href="{{ url('resources', {'technology': 'Git'}) }}" title="Voir les Ressources Git">
-                <i class="fab fa-git-alt fa-4x fa-fw"></i>
-                <span>Git</span>
-            </a>
-        </li>
-        </li>
-                <li>
-            <a class="button-green" href="{{ url('resources', {'technology': 'Media'}) }}" title="Voir les Ressources Media">
-                <i class="fas fa-file-image fa-4x fa-fw"></i>
-                <span>Media</span>
-            </a>
-        </li>
-    </ul>
+    <section>
+        <h2>Ressources Disponibles</h2>
+
+        <ul class="row anima-slideT-global">
+            <li>
+                <a class="button-tomato button-lg" 
+                    href="{{ url('resources', {'technology': 'HTML'}) }}" 
+                    title="Voir les Ressources HTML">
+                    <i class="fab fa-html5 fa-4x fa-fw"></i>
+                    <strong>HTML</strong>
+                </a>
+            </li>
+            <li>
+                <a class="button-blue button-lg" 
+                    href="{{ url('resources', {'technology': 'CSS'}) }}" 
+                    title="Voir les Ressources CSS">
+                    <i class="fab fa-css3-alt fa-4x fa-fw"></i>
+                    <strong>CSS</strong>
+                </a>
+            </li>
+            <li>
+                <a class="button-gold button-lg" 
+                    href="{{ url('resources', {'technology': 'JS'}) }}" 
+                    title="Voir les Ressources JavaScript">
+                    <i class="fab fa-js-square fa-4x fa-fw"></i>
+                    <strong>JS</strong>
+                </a>
+            </li>
+            <li>
+                <a class="button-sky button-lg" 
+                    href="{{ url('resources', {'technology': 'PHP'}) }}" 
+                    title="Voir les Ressources PHP">
+                    <i class="fab fa-php fa-4x fa-fw"></i>
+                    <strong>PHP</strong>
+                </a>
+            </li>
+            <li>
+                <a class="button-navy button-lg" 
+                    href="{{ url('resources', {'technology': 'SQL'}) }}" 
+                    title="Voir les Ressources SQL">
+                    <i class="fas fa-database fa-4x fa-fw"></i>
+                    <strong>SQL</strong>
+                </a>
+            </li>
+                    <li>
+                <a class="button-lg" 
+                    href="{{ url('resources', {'technology': 'Git'}) }}" 
+                    title="Voir les Ressources Git">
+                    <i class="fab fa-git-alt fa-4x fa-fw"></i>
+                    <strong>Git</strong>
+                </a>
+            </li>
+            </li>
+            <li>
+                <a class="button-green button-lg" 
+                    href="{{ url('resources', {'technology': 'Media'}) }}" 
+                    title="Voir les Ressources Media">
+                    <i class="fas fa-file-image fa-4x fa-fw"></i>
+                    <strong>Media</strong>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Plateformes d'Apprentissage</h2>
+
+        <ul>
+            <li>
+                <a class="button-lg cursor-help anima-shrink-onto" 
+                    href="https://openclassrooms.com/fr" 
+                    title="Formations Diplômantes & Cours">
+                    <em>OpenClassrooms</em>
+                </a>
+            </li>
+            <li>
+                <a class="button-lg cursor-help anima-shrink-onto" 
+                    href="https://grafikart.fr" 
+                    title="Formations & Tutoriels">
+                    <em>Grafikart</em>
+                </a>
+            </li>
+            <li>
+                <a class="button-lg cursor-help anima-shrink-onto" 
+                    href="https://www.freecodecamp.org" 
+                    title="Exercices & Projets">
+                    <em>Free Code Camp</em>
+                </a>
+            </li>
+            <li>
+                <a class="button-lg cursor-help anima-shrink-onto" 
+                    href="https://www.sololearn.com" 
+                    title="Cours & Défis">
+                    <em>SoloLearn</em>
+                </a>
+            </li>
+        </ul>
+    </section>
 </main>
 {% endblock %}
