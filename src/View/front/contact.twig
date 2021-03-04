@@ -15,20 +15,20 @@
         <fieldset>
             <ul>
                 <li>
-                    <label class="anima-slideR" for="name">Name</label>
-                    <input class="anima-slideL" id="name" name="name" type="text" placeholder="Your name" maxlength="20" required>
+                    <label class="anima-slideR" for="name">Nom</label>
+                    <input class="anima-slideL" id="name" name="name" type="text" placeholder="Votre Nom" maxlength="20" required>
                 </li>
                 <li>
-                    <label class="anima-slideR" for="email">Email</label>
-                    <input class="anima-slideL" id="email" name="email" type="email" placeholder="Your email" maxlength="50" required>
+                    <label class="anima-slideR" for="email">Courriel</label>
+                    <input class="anima-slideL" id="email" name="email" type="email" placeholder="Votre Courriel" maxlength="50" required>
                 </li>
                 <li>
-                    <label class="anima-slideR" for="subject">Subject</label>
-                    <input class="anima-slideL" id="subject" name="subject" type="text" placeholder="Your subject" maxlength="50" required>
+                    <label class="anima-slideR" for="subject">Sujet</label>
+                    <input class="anima-slideL" id="subject" name="subject" type="text" placeholder="Votre Sujet" maxlength="50" required>
                 </li>
                 <li>
                     <label class="anima-slideR" for="message">Message</label>
-                    <textarea class="anima-slideL" id="message" name="message" placeholder="Your message" rows="5" cols="20"></textarea>
+                    <textarea class="anima-slideL" id="message" name="message" placeholder="Votre Message" rows="5" cols="20"></textarea>
                 </li>
             </ul>
             <ul>
@@ -36,12 +36,12 @@
                     <div id="recaptcha" class="g-recaptcha container bord-navy bord-sm" data-sitekey="6LdTBtoZAAAAADITfTTXpjsctFXZqKXZc-seM9ZL"></div>
                 </li>
                 <li>
-                    <input class="anima-slideR" type="reset" value="Reset">
-                    <input class="anima-slideL" type="submit" value="Send">
+                    <input class="anima-slideR" type="reset" value="Réinitialiser">
+                    <input class="anima-slideL" type="submit" value="Envoyer">
                 </li>
             </ul>
         </fieldset>
     </form>
-    <a class="btn-black btn-lg" href="{{ url('home') }}">Quit</a>
+    <a class="btn-black btn-lg" href="{{ url('home') }}">Quitter</a>
 </main>
 {% endblock %}
