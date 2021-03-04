@@ -22,14 +22,27 @@ class ResourcesController extends MainController
      */
     public function defaultMethod()
     {
-        $allResources   = $this->getArray()->getArrayElements(ModelFactory::getModel("Resources")->listData($this->getGet()->getGetVar("technology")), "technology");
-        $resources      = $this->getArray()->getArrayElements($allResources[$this->getGet()->getGetVar("technology")]);
-        $technology     = $this->getGet()->getGetVar("technology");
+        $technology = $this->getGet()->getGetVar("technology");
 
-        return $this->render("front/resource.twig", [
-            "resources"     => $resources,
-            "technology"    => $technology
-        ]);
+        switch ($technology) {
+            case 'HTML':
+            case 'CSS':
+            case 'JS':
+            case 'PHP':
+            case 'SQL':
+            case 'Git':
+            case 'Media':
+                $allResources   = $this->getArray()->getArrayElements(ModelFactory::getModel("Resources")->listData($technology), "technology");
+                $resources      = $this->getArray()->getArrayElements($allResources[$technology]);
+
+                return $this->render("front/resource.twig", [
+                    "resources"     => $resources,
+                    "technology"    => $technology
+                ]);
+
+            default:
+                $this->redirect('home');
+        }
     }
 
     /**

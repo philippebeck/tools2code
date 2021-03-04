@@ -1,20 +1,18 @@
 :root {
-  --sans-serif-font-family: 'Text Me One', sans-serif;
-  --serif-font-family: 'Cinzel', serif;
-  --monospace-font-family: 'Share Tech Mono', monospace;
+  --sans-serif-font-family: 'Geo', sans-serif;
+  --serif-font-family: 'Rozha One', serif;
+  --monospace-font-family: 'Syne Mono', monospace;
 }
 
 body {
-  background-color: var(--silver-light);
+  --body-background-color: var(--silver-light);
 }
 
 .table {
-  --table-row-even-hover-background-color: var(--violet);
+  --table-row-even-background-color: var(--white);
+  --table-row-even-hover-background-color: var(--sky);
   --table-row-odd-hover-background-color: var(--sky);
+  --table-row-even-color: var(--gray);
   --table-row-even-hover-color: var(--black);
   --table-row-odd-hover-color: var(--black);
-}
-
-.foot-visual {
-  --foot-visual-padding: 0;
 }
