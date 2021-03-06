@@ -58,7 +58,8 @@ class ResourcesController extends MainController
         }
 
         if (!empty($this->getPost()->getPostArray())) {
-            $resource = $this->getPost()->getPostArray();
+            $resource           = $this->getPost()->getPostArray();
+            $resource["link"]   = str_replace("https://", "", $resource["link"]);
 
             ModelFactory::getModel("Resources")->createData($resource);
             $this->getSession()->createAlert("New Resource successfully created !", "green");
@@ -80,7 +81,8 @@ class ResourcesController extends MainController
         }
 
         if (!empty($this->getPost()->getPostArray())) {
-            $resource = $this->getPost()->getPostArray();
+            $resource           = $this->getPost()->getPostArray();
+            $resource["link"]   = str_replace("https://", "", $resource["link"]);
 
             ModelFactory::getModel("Resources")->updateData($this->getGet()->getGetVar("id"), $resource);
             $this->getSession()->createAlert("Successful modification of the selected Resource !", "blue");
