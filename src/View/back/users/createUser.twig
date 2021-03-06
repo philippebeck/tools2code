@@ -1,6 +1,6 @@
 {% extends 'layout/layout.twig' %}
 
-{% block title %}Create a New User{% endblock %}
+{% block title %}Créer un Nouvel Utilisateur{% endblock %}
 
 {% block description %}{% endblock %}
 
@@ -14,35 +14,35 @@
                 </legend>
                 <ul>
                     <li>
-                        <label for="name">Name</label>
-                        <input id="name" name="name" type="text" maxlength="50" required placeholder="Type your Name">
+                        <label for="name">Nom</label>
+                        <input id="name" name="name" type="text" maxlength="50" required placeholder="Insérer votre Nom">
                     </li>
                     <li>
                         <label for="file">Photo (max 5Mo)</label>
                         <input name="file" type="file" accept=".jpg, .jpeg, .png, .svg, .gif" required>
                     </li>
                     <li>
-                        <label for="email">Email :</label>
-                        <input id="email" name="email" type="email" maxlength="100" minlength="5" required placeholder="Type your Email">
+                        <label for="email">Courriel :</label>
+                        <input id="email" name="email" type="email" maxlength="100" minlength="5" required placeholder="Insérer votre Courriel">
                     </li>
                     <hr>
                     <li>
-                        <label for="pass">Password :</label>
-                        <input id="pass" name="pass" type="password" placeholder="Type your Password" maxlength="100" minlength="8">
+                        <label for="pass">Mot de Passe :</label>
+                        <input id="pass" name="pass" type="password" placeholder="Insérer votre Mot de Passe" maxlength="100" minlength="8">
                     </li>
                     <li>
-                        <label for="conf-pass">Confirm Password :</label>
-                        <input id="conf-pass" name="conf-pass" type="password" placeholder="Confirm your Password" maxlength="100" minlength="8">
+                        <label for="conf-pass">Confirmer le Mot de Passe :</label>
+                        <input id="conf-pass" name="conf-pass" type="password" placeholder="Confirmer votre Mot de Passe" maxlength="100" minlength="8">
                     </li>
                 </ul>
                 <ul>
                     <li>
-                        <input type="reset" value="Reset">
-                        <input type="submit" value="Create">
+                        <input type="reset" value="Réinitialiser">
+                        <input type="submit" value="Créer">
                     </li>
                 </ul>
             </fieldset>
         </form>
-        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quit</a>
+        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quitter</a>
     </main>
 {% endblock %}
