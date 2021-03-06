@@ -1,6 +1,6 @@
 {% extends 'layout/layout.twig' %}
 
-{% block title %}Edit a User{% endblock %}
+{% block title %}Éditer un Utilisateur{% endblock %}
 
 {% block description %}{% endblock %}
 
@@ -10,11 +10,11 @@
             <input name="MAX_FILE_SIZE" type="hidden" value="5000000">
             <fieldset>
                 <legend>
-                    <img class="bord-purple" src="img/user/{{ user.image }}" alt="Screenshot of {{ user.name }}">
+                    <img class="bord-purple" src="img/user/{{ user.image }}" alt="Photo de {{ user.name }}">
                 </legend>
                 <ul>
                     <li>
-                        <label for="name">Name</label>
+                        <label for="name">Nom</label>
                         <input id="name" name="name" type="text" maxlength="50" required value="{{ user.name }}">
                     </li>
                     <li>
@@ -22,31 +22,31 @@
                         <input name="file" type="file" accept=".jpg, .jpeg, .png, .gif">
                     </li>
                     <li>
-                        <label for="email">Email :</label>
+                        <label for="email">Courriel :</label>
                         <input id="email" name="email" type="email" maxlength="100" minlength="5" required value="{{ user.email }}">
                     </li>
                     <hr>
                     <li>
-                        <label for="old-pass">Old Password :</label>
-                        <input id="old-pass" name="old-pass" type="password" placeholder="Type your Old Password" maxlength="100" minlength="8">
+                        <label for="old-pass">Ancien Mot de Passe :</label>
+                        <input id="old-pass" name="old-pass" type="password" placeholder="Insérer votre Ancien Mot de Passe" maxlength="100" minlength="8">
                     </li>
                     <li>
-                        <label for="new-pass">New Password :</label>
-                        <input id="new-pass" name="new-pass" type="password" placeholder="Type your New Password" maxlength="100" minlength="8">
+                        <label for="new-pass">Nouveau Mot de Passe :</label>
+                        <input id="new-pass" name="new-pass" type="password" placeholder="Insérer votre Nouveau Mot de Passe" maxlength="100" minlength="8">
                     </li>
                     <li>
-                        <label for="conf-pass">Confirm Password :</label>
-                        <input id="conf-pass" name="conf-pass" type="password" placeholder="Confirm your New Password" maxlength="100" minlength="8">
+                        <label for="conf-pass">Confirmer le Nouveau Mot de Passe :</label>
+                        <input id="conf-pass" name="conf-pass" type="password" placeholder="Confirmer votre Nouveau Mot de Passe" maxlength="100" minlength="8">
                     </li>
                 </ul>
                 <ul>
                     <li>
-                        <input type="reset" value="Reset">
-                        <input type="submit" value="Update">
+                        <input type="reset" value="Réinitialiser">
+                        <input type="submit" value="Mettre à Jour">
                     </li>
                 </ul>
             </fieldset>
         </form>
-        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quit</a>
+        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quitter</a>
     </main>
 {% endblock %}

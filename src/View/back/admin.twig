@@ -9,27 +9,27 @@
 <input id="menu-radio2" class="menu-radio2" type="radio" name="menu">
 
 <nav class="menu">
-    <label class="button-red" for="menu-radio1" title="Show the Resources">
+    <label class="button-red" for="menu-radio1" title="Voir les Ressources">
         <i class="fas fa-box-open color-red-into"></i>
-        <span class="color-red-into">Resources</span>
+        <span class="color-red-into">Ressources</span>
     </label>
-    <label class="button-blue" for="menu-radio2" title="Show the Users">
+    <label class="button-blue" for="menu-radio2" title="Voir les Utilisateurs">
         <i class="fas fa-users color-blue-into"></i>
-        <span class="color-blue-into">Users</span>
+        <span class="color-blue-into">Utilisateurs</span>
     </label>
 </nav>
 
 <main class="menu-relay">
     <section class="menu-target1">
-        <h2><i class="fas fa-box-open"></i> Resources</h2>
+        <h2><i class="fas fa-box-open"></i> Ressources</h2>
 
-        <a class="btn-green btn-lg" href="{{ url('resources!create') }}" title="Clic to create a new resource">New Resource</a>
+        <a class="btn-green btn-lg" href="{{ url('resources!create') }}" title="Cliquer pour créer une nouvelle ressource">Nouvelle Ressource</a>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th>Name / Category</th>
-                    <th>Content</th>
+                    <th>Nom / Categorie</th>
+                    <th>Description</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -38,7 +38,7 @@
                 <tr>
                     <td>
                         <a href="https://{{ resource.link }}" title="https://{{ resource.link }}">
-                            {{ resource.name }}
+                            {{ resource.id }}. {{ resource.name }}
                             <hr>{{ resource.category }}
                         </a>
                     </td>
@@ -49,11 +49,11 @@
                     </td>
                     <td>
                         <a class="btn-blue" href="{{ url('resources!update', {'id': resource.id}) }}"
-                            title="Clic to update this resource">
+                            title="Cliquer pour éditer cette ressource">
                             <i class="fas fa-pen-square fa-fw fa-lg"></i>
                         </a>
                         <a class="btn-red" href="{{ url('resources!delete', {'id': resource.id}) }}"
-                            title="Clic to delete this resource">
+                            title="Cliquer pour supprimer cette ressource">
                             <i class="fas fa-times-circle fa-fw fa-lg"></i>
                         </a>
                     </td>
@@ -64,15 +64,15 @@
     </section>
 
     <section class="menu-target2">
-        <h2><i class="fas fa-users"></i> Users</h2>
+        <h2><i class="fas fa-users"></i> Utilisateurs</h2>
 
-        <a class="btn-green btn-lg" href="{{ url('users!create') }}" title="Clic to create a new user">New User</a>
+        <a class="btn-green btn-lg" href="{{ url('users!create') }}" title="Cliquer pour créer un nouvel utilisateur">Nouvel Utilisateur</a>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th>User</th>
-                    <th>Email</th>
+                    <th>Utilisateur</th>
+                    <th>Courriel</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -89,11 +89,11 @@
                     <td>{{ user.email }}</td>
                     <td>
                         <a class="btn-blue" href="{{ url('users!update', {'id': user.id}) }}"
-                            title="Clic to update this user">
+                            title="Cliquer pour éditer cet utiliateur">
                             <i class="fas fa-pen-square fa-fw fa-lg"></i>
                         </a>
                         <a class="btn-red" href="{{ url('users!delete', {'id': user.id}) }}"
-                            title="Clic to delete this user">
+                            title="Cliquer pour supprimer cet utilisateur">
                             <i class="fas fa-times-circle fa-fw fa-lg"></i>
                         </a>
                     </td>
