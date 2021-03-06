@@ -1,6 +1,6 @@
 {% extends 'layout/layout.twig' %}
 
-{% block title %}Create a New Resource{% endblock %}
+{% block title %}Créer une Nouvelle Ressource{% endblock %}
 
 {% block description %}{% endblock %}
 
@@ -13,34 +13,43 @@
                 </legend>
                 <ul>
                     <li>
-                        <label for="name">Name*</label>
-                        <input id="name" name="name" type="text" maxlength="50" required placeholder="Type the Resource Name">
+                        <label for="name">Nom*</label>
+                        <input id="name" name="name" type="text" maxlength="30" required placeholder="Insérer le Nom de la Ressource">
                     </li>
                     <li>
-                        <label for="link">Link*</label>
-                        <input id="link" name="link" type="text" maxlength="100" required placeholder="Type the Resource Link">
+                        <label for="link">Lien*</label>
+                        <input id="link" name="link" type="text" maxlength="100" required placeholder="Insérer le Lien de la Ressource">
                     </li>
                     <li>
-                        <label for="technology">Technology*</label>
-                        <input id="technology" name="technology" type="text" maxlength="10" required placeholder="Type the Resource Technology">
+                        <label for="category">Catégorie*</label>
+                        <input id="category" name="category" type="text" maxlength="30" required placeholder="Insérer la Catégorie de la Ressource">
                     </li>
                     <li>
-                        <label for="category">Category*</label>
-                        <input id="category" name="category" type="text" maxlength="20" required placeholder="Type the Resource Category">
+                        <label for="technology">Technologie*</label>
+                        <select id="technology" name="technology" required title="Choisissez la Technologie de la Ressource">
+                            <option value="">Choisissez une Technologie</option>
+                            <option value="HTML">HTML</option>
+                            <option value="CSS">CSS</option>
+                            <option value="JS">JavaScript</option>
+                            <option value="PHP">PHP</option>
+                            <option value="SQL">SQL</option>
+                            <option value="Git">Git</option>
+                            <option value="Media">Media</option>
+                        </select>
                     </li>
                     <li>
                         <label for="description">Description*</label>
-                        <textarea id="description" name="description" rows="15" cols="30" required placeholder="Type the Resource Description"></textarea>
+                        <textarea id="description" name="description" rows="5" cols="30" required placeholder="Insérer la Description de la Ressource"></textarea>
                     </li>
                 </ul>
                 <ul>
                     <li>
-                        <input type="reset" value="Reset">
-                        <input type="submit" value="Create">
+                        <input type="reset" value="Réinitialiser">
+                        <input type="submit" value="Créer">
                     </li>
                 </ul>
             </fieldset>
         </form>
-        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quit</a>
+        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quitter</a>
     </main>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'layout/layout.twig' %}
 
-{% block title %}Edit a Resource{% endblock %}
+{% block title %}Éditer une Ressource{% endblock %}
 
 {% block description %}{% endblock %}
 
@@ -13,34 +13,43 @@
                 </legend>
                 <ul>
                     <li>
-                        <label for="name">Name*</label>
-                        <input id="name" name="name" type="text" maxlength="20" required value="{{ resource.name }}">
+                        <label for="name">Nom*</label>
+                        <input id="name" name="name" type="text" maxlength="30" required value="{{ resource.name }}">
                     </li>
                     <li>
-                        <label for="link">Link*</label>
+                        <label for="link">Lien*</label>
                         <input id="link" name="link" type="text" maxlength="100" required value="{{ resource.link }}">
                     </li>
                     <li>
-                        <label for="technology">Technology*</label>
-                        <input id="technology" name="technology" type="text" maxlength="10" required value="{{ resource.technology }}">
+                        <label for="category">Catégorie*</label>
+                        <input id="category" name="category" type="text" maxlength="30" required value="{{ resource.category }}">
                     </li>
                     <li>
-                        <label for="category">Category*</label>
-                        <input id="category" name="category" type="text" maxlength="20" required value="{{ resource.category }}">
+                        <label for="technology">Technologie*</label>
+                        <select id="technology" name="technology" required title="Choisissez la Technologie de la Ressource">
+                            <option value="{{ resource.technology }}">{{ resource.technology }} (enregistré)</option>
+                            <option value="HTML">HTML</option>
+                            <option value="CSS">CSS</option>
+                            <option value="JS">JavaScript</option>
+                            <option value="PHP">PHP</option>
+                            <option value="SQL">SQL</option>
+                            <option value="Git">Git</option>
+                            <option value="Media">Media</option>
+                        </select>
                     </li>
                     <li>
                         <label for="description">Description*</label>
-                        <textarea id="description" name="description" rows="15" cols="30" required>{{ resource.description }}</textarea>
+                        <textarea id="description" name="description" rows="5" cols="30" required>{{ resource.description }}</textarea>
                     </li>
                 </ul>
                 <ul>
                     <li>
-                        <input type="reset" value="Reset">
-                        <input type="submit" value="Update">
+                        <input type="reset" value="Réinitialiser">
+                        <input type="submit" value="Mettre à Jour">
                     </li>
                 </ul>
             </fieldset>
         </form>
-        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quit</a>
+        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quitter</a>
     </main>
 {% endblock %}
