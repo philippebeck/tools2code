@@ -62,7 +62,7 @@ class ResourcesController extends MainController
             $resource["link"]   = str_replace("https://", "", $resource["link"]);
 
             ModelFactory::getModel("Resources")->createData($resource);
-            $this->getSession()->createAlert("New Resource successfully created !", "green");
+            $this->getSession()->createAlert("Nouvelle ressource créé avec succès !", "green");
         }
 
         return $this->render("back/resources/createResource.twig");
@@ -85,7 +85,7 @@ class ResourcesController extends MainController
             $resource["link"]   = str_replace("https://", "", $resource["link"]);
 
             ModelFactory::getModel("Resources")->updateData($this->getGet()->getGetVar("id"), $resource);
-            $this->getSession()->createAlert("Successful modification of the selected Resource !", "blue");
+            $this->getSession()->createAlert("Modification de la ressource réussie !", "blue");
 
             $this->redirect("admin");
         }
@@ -102,7 +102,7 @@ class ResourcesController extends MainController
         }
 
         ModelFactory::getModel("Resources")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Resource permanently deleted !", "red");
+        $this->getSession()->createAlert("Suppression de la resource effectuée !", "red");
 
         $this->redirect("admin");
 

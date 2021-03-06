@@ -44,7 +44,7 @@ class AuthController extends MainController
             }
         }
 
-        $this->getSession()->createAlert("Check the reCAPTCHA !", "red");
+        $this->getSession()->createAlert("Vérifier le reCAPTCHA !", "red");
 
         $this->redirect("users");
     }
@@ -54,13 +54,13 @@ class AuthController extends MainController
         $user = ModelFactory::getModel("Users")->readData($this->user["email"], "email");
 
         if (!password_verify($this->user["pass"], $user["pass"])) {
-            $this->getSession()->createAlert("Failed authentication !", "black");
+            $this->getSession()->createAlert("Authentification échouée !", "black");
 
             $this->redirect("users");
         }
 
         $this->getSession()->createSession($user);
-        $this->getSession()->createAlert("Successful authentication, welcome " . $user["name"] . " !", "purple");
+        $this->getSession()->createAlert("Authentification réussie, bienvenue " . $user["name"] . " !", "purple");
 
         $this->redirect("admin");
     }
