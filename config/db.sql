@@ -6,8 +6,8 @@ USE `tools2code`;
 CREATE TABLE `Resources`
 (
   `id`          SMALLINT        UNSIGNED    PRIMARY KEY AUTO_INCREMENT,
-  `name`        VARCHAR(20)     NOT NULL    UNIQUE,
-  `link`        VARCHAR(50)     NOT NULL    UNIQUE,
+  `name`        VARCHAR(30)     NOT NULL    UNIQUE,
+  `link`        VARCHAR(100)    NOT NULL    UNIQUE,
   `technology`  VARCHAR(5)      NOT NULL,
   `category`    VARCHAR(30)     NOT NULL,
   `description` VARCHAR(255)    NOT NULL    UNIQUE
