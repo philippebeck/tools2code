@@ -6,28 +6,26 @@
 
 {% block main %}
     <main>
-        <section>
-            <table class="table">
-                <tbody>
+        <table class="table">
+            <tbody>
 
-                {% for category, resourceCategory in resources %}
-                    <tr>
-                        <th class="color-green bg-yellow trans-up" colspan="2">{{ category }}</th>
-                    </tr>
+            {% for category, resourceCategory in resources %}
+                <tr>
+                    <th class="color-green bg-yellow trans-up" colspan="2">{{ category }}</th>
+                </tr>
 
-                    {% for resource in resourceCategory %}    
-                    <tr>
-                        <td>
-                            <a class="button-navy" href="https://{{ resource.link }}" title="https://{{ resource.link }}">
-                                <strong>{{ resource.name }}</strong>
-                            </a>
-                        </td>
-                        <td class="font-monospace">{{ resource.description }}</td>
-                    </tr>
-                    {% endfor %}
+                {% for resource in resourceCategory %}    
+                <tr>
+                    <td>
+                        <a class="button-navy" href="https://{{ resource.link }}" title="https://{{ resource.link }}">
+                            <strong>{{ resource.name }}</strong>
+                        </a>
+                    </td>
+                    <td class="font-monospace">{{ resource.description }}</td>
+                </tr>
                 {% endfor %}
-                </tbody>
-            </table>
-        </section>
+            {% endfor %}
+            </tbody>
+        </table>
     </main>
 {% endblock %}
