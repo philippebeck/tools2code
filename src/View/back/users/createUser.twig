@@ -5,44 +5,90 @@
 {% block description %}{% endblock %}
 
 {% block main %}
-    <main class="align-center">
-        <form class="form" method="post" action={{ url('users!create') }} enctype="multipart/form-data">
-            <input name="MAX_FILE_SIZE" type="hidden" value="5000000">
-            <fieldset>
-                <legend>
-                    <i class="fas fa-users fa-2x"></i>
-                </legend>
-                <ul>
-                    <li>
-                        <label for="name">Nom</label>
-                        <input id="name" name="name" type="text" maxlength="50" required placeholder="Insérer votre Nom">
-                    </li>
-                    <li>
-                        <label for="file">Photo (max 5Mo)</label>
-                        <input name="file" type="file" accept=".jpg, .jpeg, .png, .svg, .gif" required>
-                    </li>
-                    <li>
-                        <label for="email">Courriel :</label>
-                        <input id="email" name="email" type="email" maxlength="100" minlength="5" required placeholder="Insérer votre Courriel">
-                    </li>
-                    <hr>
-                    <li>
-                        <label for="pass">Mot de Passe :</label>
-                        <input id="pass" name="pass" type="password" placeholder="Insérer votre Mot de Passe" maxlength="100" minlength="8">
-                    </li>
-                    <li>
-                        <label for="conf-pass">Confirmer le Mot de Passe :</label>
-                        <input id="conf-pass" name="conf-pass" type="password" placeholder="Confirmer votre Mot de Passe" maxlength="100" minlength="8">
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <input type="reset" value="Réinitialiser">
-                        <input type="submit" value="Créer">
-                    </li>
-                </ul>
-            </fieldset>
-        </form>
-        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quitter</a>
-    </main>
+<main>
+    <form class="form" 
+        method="post" 
+        action={{ url('users!create') }} 
+        enctype="multipart/form-data">
+        <input name="MAX_FILE_SIZE" 
+            type="hidden" 
+            value="5000000">
+        <fieldset>
+            <legend>
+                <i class="fas fa-users fa-2x"></i>
+            </legend>
+            <ul>
+                <li>
+                    <label for="name">
+                        Nom
+                    </label>
+                    <input id="name" 
+                        name="name" 
+                        type="text" 
+                        maxlength="50" 
+                        placeholder="Insérer le Nom"
+                        required>
+                </li>
+                <li>
+                    <label for="file">
+                        Photo (max 5Mo)
+                    </label>
+                    <input name="file" 
+                        type="file" 
+                        accept=".jpg, .jpeg, .png, .svg, .gif" 
+                        required>
+                </li>
+                <li>
+                    <label for="email">
+                        Courriel
+                    </label>
+                    <input id="email" 
+                        name="email" 
+                        type="email" 
+                        maxlength="100" 
+                        minlength="5" 
+                        placeholder="Insérer le Courriel"
+                        required>
+                </li>
+                <hr>
+                <li>
+                    <label for="pass">
+                        Mot de Passe
+                    </label>
+                    <input id="pass" 
+                        name="pass" 
+                        type="password" 
+                        placeholder="Insérer le Mot de Passe" 
+                        maxlength="100" 
+                        minlength="8"
+                        required>
+                </li>
+                <li>
+                    <label for="conf-pass">
+                        Confirmer
+                    </label>
+                    <input id="conf-pass" 
+                        name="conf-pass" 
+                        type="password" 
+                        placeholder="Confirmer le Mot de Passe" 
+                        maxlength="100" 
+                        minlength="8"
+                        required>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <input type="reset" 
+                        value="Réinitialiser">
+                    <input type="submit" 
+                        value="Créer">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <a class="btn-black btn-lg" 
+        href="{{ url('admin') }}">
+        Quitter
+    </a>
+</main>
 {% endblock %}
