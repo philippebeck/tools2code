@@ -94,7 +94,7 @@ class ResourcesController extends MainController
         if (!empty($this->getPost()->getPostArray())) {
             $this->setResourceData();
 
-            ModelFactory::getModel("Resources")->updateData($this->getGet()->getGetVar("id"), $this->resources);
+            ModelFactory::getModel("Resources")->updateData($this->getGet()->getGetVar("id"), $this->resource);
             $this->getSession()->createAlert("Modification de la ressource réussie !", "blue");
 
             $this->redirect("admin");

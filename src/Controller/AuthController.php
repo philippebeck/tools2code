@@ -60,7 +60,7 @@ class AuthController extends MainController
         }
 
         $this->getSession()->createSession($user);
-        $this->getSession()->createAlert("Authentification réussie, bienvenue " . $user["name"] . " !", "purple");
+        $this->getSession()->createAlert("Authentification réussie, bienvenue " . $user["name"] . " !", "violet");
 
         $this->redirect("admin");
     }
