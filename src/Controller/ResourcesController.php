@@ -15,6 +15,11 @@ use Twig\Error\SyntaxError;
 class ResourcesController extends MainController
 {
     /**
+     * @var array
+     */
+    private $resource = [];
+
+    /**
      * @return string
      * @throws LoaderError
      * @throws RuntimeError
@@ -58,14 +63,20 @@ class ResourcesController extends MainController
         }
 
         if (!empty($this->getPost()->getPostArray())) {
-            $resource           = $this->getPost()->getPostArray();
-            $resource["link"]   = str_replace("https://", "", $resource["link"]);
+            $this->setResourceData();
 
-            ModelFactory::getModel("Resources")->createData($resource);
+            ModelFactory::getModel("Resources")->createData($this->resource);
             $this->getSession()->createAlert("Nouvelle ressource créé avec succès !", "green");
         }
 
         return $this->render("back/resources/createResource.twig");
+    }
+
+    private function setResourceData()
+    {
+        $this->resource                 = $this->getPost()->getPostArray();
+        $this->resource["description"]  = trim($this->resource["description"]);
+        $this->resource["link"]         = str_replace("https://", "", $this->resource["link"]);
     }
 
     /**
@@ -81,18 +92,17 @@ class ResourcesController extends MainController
         }
 
         if (!empty($this->getPost()->getPostArray())) {
-            $resource           = $this->getPost()->getPostArray();
-            $resource["link"]   = str_replace("https://", "", $resource["link"]);
+            $this->setResourceData();
 
-            ModelFactory::getModel("Resources")->updateData($this->getGet()->getGetVar("id"), $resource);
+            ModelFactory::getModel("Resources")->updateData($this->getGet()->getGetVar("id"), $this->resources);
             $this->getSession()->createAlert("Modification de la ressource réussie !", "blue");
 
             $this->redirect("admin");
         }
 
-        $resource = ModelFactory::getModel("Resources")->readData($this->getGet()->getGetVar("id"));
+        $this->resource = ModelFactory::getModel("Resources")->readData($this->getGet()->getGetVar("id"));
 
-        return $this->render("back/resources/updateResource.twig", ["resource" => $resource]);
+        return $this->render("back/resources/updateResource.twig", ["resource" => $this->resource]);
     }
 
     public function deleteMethod()
