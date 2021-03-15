@@ -1,11 +1,26 @@
 :root {
-  --sans-serif-font-family: 'Geo', sans-serif;
-  --serif-font-family: 'Rozha One', serif;
-  --monospace-font-family: 'Syne Mono', monospace;
+  --sans-serif: 'Geo', sans-serif;
+  --serif: 'Rozha One', serif;
+  --monospace: 'Syne Mono', monospace;
+  --shrink: scale(1.5, 1.5);
 }
 
 body {
-  --body-background-color: var(--silver-light);
+  --body-background-color: var(--grey-light);
+}
+
+.navbar {
+  --navbar-background-color: var(--in);
+}
+
+.head {
+  --head-border: medium solid var(--fb);
+  --head-color: var(--tw);
+}
+
+.foot {
+  --foot-list-background-color: var(--pp);
+  --foot-list-link-hover-font-color: var(--orange);
 }
 
 .table {

@@ -2,32 +2,35 @@
 
 {% block title %}{{ technology }}{% endblock %}
 
-{% block description %}Ressources pour le Développement Informatique en {{ technology }}{% endblock %}
+{% block description %}
+    Ressources pour le Développement Informatique en {{ technology }}
+{% endblock %}
 
 {% block main %}
-    <main>
-        <section>
-            <table class="table">
-                <tbody>
+<main>
+    <table class="table">
 
-                {% for category, resourceCategory in resources %}
-                    <tr>
-                        <th class="color-green bg-yellow trans-up" colspan="2">{{ category }}</th>
-                    </tr>
+        {% for category, resourceCategory in resources %}
+            <tr>
+                <th class="color-green bg-yellow-light trans-up" 
+                    colspan="2">
+                    {{ category }}
+                </th>
+            </tr>
 
-                    {% for resource in resourceCategory %}    
-                    <tr>
-                        <td>
-                            <a class="button-navy" href="https://{{ resource.link }}" title="https://{{ resource.link }}">
-                                <strong>{{ resource.name }}</strong>
-                            </a>
-                        </td>
-                        <td class="font-monospace">{{ resource.description }}</td>
-                    </tr>
-                    {% endfor %}
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
-    </main>
+            {% for resource in resourceCategory %}    
+            <tr>
+                <td>
+                    <a class="button-fb" 
+                        href="https://{{ resource.link }}" 
+                        title="https://{{ resource.link }}">
+                        <strong>{{ resource.name }}</strong>
+                    </a>
+                </td>
+                <td class="font-monospace">{{ resource.description }}</td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+</main>
 {% endblock %}
