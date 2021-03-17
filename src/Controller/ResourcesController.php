@@ -74,9 +74,15 @@ class ResourcesController extends MainController
 
     private function setResourceData()
     {
-        $this->resource                 = $this->getPost()->getPostArray();
-        $this->resource["description"]  = trim($this->resource["description"]);
-        $this->resource["link"]         = str_replace("https://", "", $this->resource["link"]);
+        $this->resource = $this->getPost()->getPostArray();
+
+        $this->resource["link"] = (string) trim($this->resource["link"]);
+        $this->resource["link"] = str_replace("http://", "", $this->resource["link"]);
+        $this->resource["link"] = str_replace("https://", "", $this->resource["link"]);
+
+        $this->resource["name"]         = (string) trim($this->resource["name"]);
+        $this->resource["category"]     = (string) trim($this->resource["category"]);
+        $this->resource["description"]  = (string) trim($this->resource["description"]);
     }
 
     /**
