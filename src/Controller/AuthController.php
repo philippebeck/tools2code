@@ -29,13 +29,13 @@ class AuthController extends MainController
     {
         if (!empty($this->getPost()->getPostArray())) {
             $this->user = $this->getPost()->getPostArray();
-            $this->CheckSecurity();
+            $this->checkSecurity();
         }
 
         return $this->render("front/login.twig");
     }
 
-    private function CheckSecurity()
+    private function checkSecurity()
     {
         if (isset($this->user["g-recaptcha-response"]) && !empty($this->user["g-recaptcha-response"])) {
 
