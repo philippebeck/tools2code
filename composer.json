@@ -1,6 +1,6 @@
 {
     "name": "devsagency/tools2code",
-    "version": "0.9.2",
+    "version": "0.9.3",
     "type": "project",
     "description": "Tools to Code",
     "keywords": [
@@ -30,10 +30,10 @@
     },
     "require": {
       "php": "7.3",
-      "devsagency/pam": "^4.6.0"
+      "devsagency/pam": "^4.6.1"
     },
     "require-dev": {
-      "tracy/tracy": "^2.7.5"
+      "tracy/tracy": "^2.8.3"
     },
     "config": {
       "platform": {
