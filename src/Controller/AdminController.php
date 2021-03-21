@@ -27,7 +27,7 @@ class AdminController extends MainController
         }
 
         $allResources   = ModelFactory::getModel("Resource")->listData();
-        $allUsers       = ModelFactory::getModel("Users")->listData();
+        $allUsers       = ModelFactory::getModel("User")->listData();
 
         return $this->render("back/admin.twig", [
             "allResources"  => $allResources,

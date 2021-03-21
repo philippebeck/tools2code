@@ -51,7 +51,7 @@ class AuthController extends MainController
 
     private function checkLogin()
     {
-        $user = ModelFactory::getModel("Users")->readData($this->user["email"], "email");
+        $user = ModelFactory::getModel("User")->readData($this->user["email"], "email");
 
         if (!password_verify($this->user["pass"], $user["pass"])) {
             $this->getSession()->createAlert("Authentification échouée !", "black");
