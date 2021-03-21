@@ -5,7 +5,7 @@ namespace App\Model;
 use Pam\Model\MainModel;
 
 /**
- * Class ResourcesModel
+ * Class ResourceModel
  * @package App\Model
  */
-class ResourcesModel extends MainModel {}
+class ResourceModel extends MainModel {}

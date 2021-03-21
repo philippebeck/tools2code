@@ -3,7 +3,7 @@ CREATE DATABASE `tools2code` CHARACTER SET utf8;
 
 USE `tools2code`;
 
-CREATE TABLE `Resources`
+CREATE TABLE `Resource`
 (
   `id`          SMALLINT        UNSIGNED    PRIMARY KEY AUTO_INCREMENT,
   `name`        VARCHAR(30)     NOT NULL    UNIQUE,
@@ -14,7 +14,7 @@ CREATE TABLE `Resources`
 )
 ENGINE=INNODB DEFAULT CHARSET=utf8;
 
-INSERT INTO `Resources`
+INSERT INTO `Resource`
 (`name`, `link`, `technology`, `category`, `description`) VALUES
 ('HTML',                        'html.spec.whatwg.org/multipage',                                                       'HTML',   'Spécifications',         'HTML est le langage de balisage principal du World Wide Web.'),
 ('Doc HTML',                    'developer.mozilla.org/fr/docs/Web/HTML/Element',                                       'HTML',   'Documentation',          'Cette page énumère tous les éléments HTML, regroupés ici selon leurs fonctions.'),

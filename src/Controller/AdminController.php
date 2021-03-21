@@ -26,7 +26,7 @@ class AdminController extends MainController
             $this->redirect("home");
         }
 
-        $allResources   = ModelFactory::getModel("Resources")->listData();
+        $allResources   = ModelFactory::getModel("Resource")->listData();
         $allUsers       = ModelFactory::getModel("Users")->listData();
 
         return $this->render("back/admin.twig", [
