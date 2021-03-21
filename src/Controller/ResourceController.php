@@ -9,10 +9,10 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class ResourcesController
+ * Class ResourceController
  * @package App\Controller
  */
-class ResourcesController extends MainController
+class ResourceController extends MainController
 {
     /**
      * @var array
@@ -37,7 +37,7 @@ class ResourcesController extends MainController
             case 'SQL':
             case 'Git':
             case 'Media':
-                $allResources   = $this->getArray()->getArrayElements(ModelFactory::getModel("Resources")->listData($technology), "technology");
+                $allResources   = $this->getArray()->getArrayElements(ModelFactory::getModel("Resource")->listData($technology), "technology");
                 $resources      = $this->getArray()->getArrayElements($allResources[$technology]);
 
                 return $this->render("front/resource.twig", [
@@ -65,11 +65,11 @@ class ResourcesController extends MainController
         if (!empty($this->getPost()->getPostArray())) {
             $this->setResourceData();
 
-            ModelFactory::getModel("Resources")->createData($this->resource);
+            ModelFactory::getModel("Resource")->createData($this->resource);
             $this->getSession()->createAlert("Nouvelle ressource créé avec succès !", "green");
         }
 
-        return $this->render("back/resources/createResource.twig");
+        return $this->render("back/resource/createResource.twig");
     }
 
     private function setResourceData()
@@ -100,15 +100,15 @@ class ResourcesController extends MainController
         if (!empty($this->getPost()->getPostArray())) {
             $this->setResourceData();
 
-            ModelFactory::getModel("Resources")->updateData($this->getGet()->getGetVar("id"), $this->resource);
+            ModelFactory::getModel("Resource")->updateData($this->getGet()->getGetVar("id"), $this->resource);
             $this->getSession()->createAlert("Modification de la ressource réussie !", "blue");
 
             $this->redirect("admin");
         }
 
-        $this->resource = ModelFactory::getModel("Resources")->readData($this->getGet()->getGetVar("id"));
+        $this->resource = ModelFactory::getModel("Resource")->readData($this->getGet()->getGetVar("id"));
 
-        return $this->render("back/resources/updateResource.twig", ["resource" => $this->resource]);
+        return $this->render("back/resource/updateResource.twig", ["resource" => $this->resource]);
     }
 
     public function deleteMethod()
@@ -117,7 +117,7 @@ class ResourcesController extends MainController
             $this->redirect("home");
         }
 
-        ModelFactory::getModel("Resources")->deleteData($this->getGet()->getGetVar("id"));
+        ModelFactory::getModel("Resource")->deleteData($this->getGet()->getGetVar("id"));
         $this->getSession()->createAlert("Suppression de la resource effectuée !", "red");
 
         $this->redirect("admin");

@@ -9,10 +9,10 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class UsersController
+ * Class UserController
  * @package App\Controller
  */
-class UsersController extends MainController
+class UserController extends MainController
 {
     /**
      * @var array
@@ -54,13 +54,13 @@ class UsersController extends MainController
 
             $this->user["pass"] = password_hash($this->getPost()->getPostVar("pass"), PASSWORD_DEFAULT);
 
-            ModelFactory::getModel("Users")->createData($this->user);
+            ModelFactory::getModel("User")->createData($this->user);
             $this->getSession()->createAlert("Nouvel utilisateur créé avec succès !", "green");
 
             $this->redirect("admin");
         }
 
-        return $this->render("back/users/createUser.twig");
+        return $this->render("back/user/createUser.twig");
     }
 
     private function setUserData()
@@ -93,9 +93,9 @@ class UsersController extends MainController
             $this->setUpdateData();
         }
 
-        $user = ModelFactory::getModel("Users")->readData($this->getGet()->getGetVar("id"));
+        $user = ModelFactory::getModel("User")->readData($this->getGet()->getGetVar("id"));
 
-        return $this->render("back/users/updateUser.twig", ["user" => $user]);
+        return $this->render("back/user/updateUser.twig", ["user" => $user]);
     }
 
     private function setUpdateData()
@@ -110,7 +110,7 @@ class UsersController extends MainController
             $this->setUpdatePassword();
         }
 
-        ModelFactory::getModel("Users")->updateData($this->getGet()->getGetVar("id"), $this->user);
+        ModelFactory::getModel("User")->updateData($this->getGet()->getGetVar("id"), $this->user);
         $this->getSession()->createAlert("Modification de l'utilisateur réussie !", "blue");
 
         $this->redirect("admin");
@@ -118,7 +118,7 @@ class UsersController extends MainController
 
     private function setUpdatePassword()
     {
-        $user = ModelFactory::getModel("Users")->readData($this->getGet()->getGetVar("id"));
+        $user = ModelFactory::getModel("User")->readData($this->getGet()->getGetVar("id"));
 
         if (!password_verify($this->getPost()->getPostVar("old-pass"), $user["pass"])) {
             $this->getSession()->createAlert("Ancien mot de passe incorrect !", "red");
@@ -141,7 +141,7 @@ class UsersController extends MainController
             $this->redirect("home");
         }
 
-        ModelFactory::getModel("Users")->deleteData($this->getGet()->getGetVar("id"));
+        ModelFactory::getModel("User")->deleteData($this->getGet()->getGetVar("id"));
         $this->getSession()->createAlert("Suppression de l'utilisateur effectuée !", "red");
 
         $this->redirect("admin");

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7acc802268bbd45db8ef24b5a715f53",
+    "content-hash": "b1005cd44e379496fe12cafcda69906c",
     "packages": [
         {
             "name": "devsagency/pam",
