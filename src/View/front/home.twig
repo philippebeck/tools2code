@@ -15,12 +15,12 @@
     </header>
 
     <section class="container-90tn">
-        <h2>Ressources Disponibles</h2>
+        <h2>Ressources</h2>
 
-        <ul class="row anima-slideT-global">
+        <ul class="flex anima-slideT-global">
             <li>
                 <a class="button-red button-lg" 
-                    href="{{ url('resources', {'technology': 'HTML'}) }}" 
+                    href="{{ url('resource', {'technology': 'HTML'}) }}" 
                     title="Voir les Ressources HTML">
                     <i class="fab fa-html5 fa-4x fa-fw"></i>
                     <strong>HTML</strong>
@@ -28,7 +28,7 @@
             </li>
             <li>
                 <a class="button-blue button-lg" 
-                    href="{{ url('resources', {'technology': 'CSS'}) }}" 
+                    href="{{ url('resource', {'technology': 'CSS'}) }}" 
                     title="Voir les Ressources CSS">
                     <i class="fab fa-css3-alt fa-4x fa-fw"></i>
                     <strong>CSS</strong>
@@ -36,7 +36,7 @@
             </li>
             <li>
                 <a class="button-yellow button-lg" 
-                    href="{{ url('resources', {'technology': 'JS'}) }}" 
+                    href="{{ url('resource', {'technology': 'JS'}) }}" 
                     title="Voir les Ressources JavaScript">
                     <i class="fab fa-js-square fa-4x fa-fw"></i>
                     <strong>JS</strong>
@@ -44,7 +44,7 @@
             </li>
             <li>
                 <a class="button-in button-lg" 
-                    href="{{ url('resources', {'technology': 'PHP'}) }}" 
+                    href="{{ url('resource', {'technology': 'PHP'}) }}" 
                     title="Voir les Ressources PHP">
                     <i class="fab fa-php fa-4x fa-fw"></i>
                     <strong>PHP</strong>
@@ -52,7 +52,7 @@
             </li>
             <li>
                 <a class="button-pp button-lg" 
-                    href="{{ url('resources', {'technology': 'SQL'}) }}" 
+                    href="{{ url('resource', {'technology': 'SQL'}) }}" 
                     title="Voir les Ressources SQL">
                     <i class="fas fa-database fa-4x fa-fw"></i>
                     <strong>SQL</strong>
@@ -60,7 +60,7 @@
             </li>
                     <li>
                 <a class="button-gh button-lg" 
-                    href="{{ url('resources', {'technology': 'Git'}) }}" 
+                    href="{{ url('resource', {'technology': 'Git'}) }}" 
                     title="Voir les Ressources Git">
                     <i class="fab fa-git-alt fa-4x fa-fw"></i>
                     <strong>Git</strong>
@@ -69,7 +69,7 @@
             </li>
             <li>
                 <a class="button-green button-lg" 
-                    href="{{ url('resources', {'technology': 'Media'}) }}" 
+                    href="{{ url('resource', {'technology': 'Media'}) }}" 
                     title="Voir les Ressources Media">
                     <i class="fas fa-file-image fa-4x fa-fw"></i>
                     <strong>Media</strong>
@@ -79,52 +79,70 @@
     </section>
 
     <section>
-        <h2>Plateformes d'Apprentissage</h2>
+        <h2>Apprentissage</h2>
 
-        <ul class="global-cursor-help">
-            <li>
-                <a class="button-lg anima-shrink-inout-tn-few-altrev-onto" 
-                    href="https://openclassrooms.com/fr" 
-                    title="Formations Diplômantes & Cours">
-                    <em>OpenClassrooms</em>
-                </a>
-            </li>
-            <li>
-                <a class="button-lg anima-shrink-inout-tn-few-altrev-onto" 
-                    href="https://developer.mozilla.org/fr/docs/Learn" 
-                    title="Tutoriels & Documentations">
-                    <em>MDN</em>
-                </a>
-            </li>
-            <li>
-                <a class="button-lg anima-shrink-inout-tn-few-altrev-onto" 
-                    href="https://grafikart.fr" 
-                    title="Formations & Tutoriels">
-                    <em>Grafikart</em>
-                </a>
-            </li>
-            <li>
-                <a class="button-lg anima-shrink-inout-tn-few-altrev-onto" 
-                    href="https://dyma.fr" 
-                    title="Cours & Tutoriels">
-                    <em>Dyma</em>
-                </a>
-            </li>
-            <li>
-                <a class="button-lg anima-shrink-inout-tn-few-altrev-onto" 
-                    href="https://www.freecodecamp.org" 
-                    title="Exercices & Projets">
-                    <em>Free Code Camp</em>
-                </a>
-            </li>
-            <li>
-                <a class="button-lg anima-shrink-inout-tn-few-altrev-onto" 
-                    href="https://www.sololearn.com" 
-                    title="Cours & Défis">
-                    <em>SoloLearn</em>
-                </a>
-            </li>
-        </ul>
+        <section>
+            <h3>Francophone</h3>
+
+            <ul>
+                <li>
+                    <a class="button-blue button-lg anima-shrink-inout-tn-few-altrev-onto" 
+                        href="https://openclassrooms.com/fr" 
+                        title="Formations Diplômantes & Cours">
+                        <em>OpenClassrooms</em>
+                    </a>
+                </li>
+                <li>
+                    <a class="button-blue button-lg anima-shrink-inout-tn-few-altrev-onto" 
+                        href="https://developer.mozilla.org/fr/docs/Learn" 
+                        title="Tutoriels & Documentations">
+                        <em>MDN</em>
+                    </a>
+                </li>
+                <li>
+                    <a class="button-blue button-lg anima-shrink-inout-tn-few-altrev-onto" 
+                        href="https://grafikart.fr" 
+                        title="Formations & Tutoriels">
+                        <em>Grafikart</em>
+                    </a>
+                </li>
+                <li>
+                    <a class="button-blue button-lg anima-shrink-inout-tn-few-altrev-onto" 
+                        href="https://waytolearnx.com" 
+                        title="Tutoriels & Exercices">
+                        <em>WayToLearnX</em>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Anglophone</h3>
+
+            <ul>
+                <li>
+                    <a class="button-red button-lg anima-shrink-inout-tn-few-altrev-onto" 
+                        href="https://www.w3docs.com" 
+                        title="Cours & Exercices">
+                        <em>W3 Docs</em>
+                    </a>
+                </li>
+                <li>
+                    <a class="button-red button-lg anima-shrink-inout-tn-few-altrev-onto" 
+                        href="https://www.freecodecamp.org" 
+                        title="Exercices & Projets">
+                        <em>Free Code Camp</em>
+                    </a>
+                </li>
+                <li>
+                    <a class="button-red button-lg anima-shrink-inout-tn-few-altrev-onto" 
+                        href="https://www.sololearn.com" 
+                        title="Cours & Défis">
+                        <em>SoloLearn</em>
+                    </a>
+                </li>
+            </ul>
+        </section>
     </section>
 </main>
 {% endblock %}
