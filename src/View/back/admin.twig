@@ -16,133 +16,26 @@
     name="menu">
 
 <nav class="menu">
-    <label class="button-red" 
-        for="menu-radio1" 
+    <label for="menu-radio1" 
         title="Voir les Ressources">
-        <i class="fas fa-box-open onto-color-red"></i>
-        <span class="onto-color-red">
+        <i class="fas fa-box-open"></i>
+        <span>
             Ressources
         </span>
     </label>
-    <label class="button-blue" 
-        for="menu-radio2" 
+    <label for="menu-radio2" 
         title="Voir les Utilisateurs">
-        <i class="fas fa-users onto-color-blue"></i>
-        <span class="onto-color-blue">
+        <i class="fas fa-users"></i>
+        <span>
             Utilisateurs
         </span>
     </label>
 </nav>
 
 <main class="menu-relay">
-    <section class="menu-target1">
-        <h2>
-            <i class="fas fa-box-open"></i> 
-            Ressources
-        </h2>
 
-        <a class="btn-green btn-lg" 
-            href="{{ url('resources!create') }}" 
-            title="Cliquer pour créer une nouvelle ressource">
-            Nouvelle Ressource
-        </a>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nom / Categorie</th>
-                    <th>Description</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                {% for resource in allResources %}
-                <tr>
-                    <td>
-                        <a href="https://{{ resource.link }}" 
-                            title="https://{{ resource.link }}">
-                            {{ resource.id }}. {{ resource.name }}
-                            <hr>{{ resource.category }}
-                        </a>
-                    </td>
-                    <td>
-                        <a href="https://{{ resource.link }}" 
-                            title="https://{{ resource.link }}">
-                            {{ resource.description }}
-                        </a>
-                    </td>
-                    <td>
-                        <a class="btn-blue" 
-                            href="{{ url('resources!update', {'id': resource.id}) }}"
-                            title="Cliquer pour éditer cette ressource">
-                            <i class="fas fa-pen-square fa-fw fa-lg"></i>
-                        </a>
-                        <a class="btn-red" 
-                            href="{{ url('resources!delete', {'id': resource.id}) }}"
-                            title="Cliquer pour supprimer cette ressource">
-                            <i class="fas fa-times-circle fa-fw fa-lg"></i>
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-
-            </tbody>
-        </table>
-    </section>
-
-    <section class="menu-target2">
-        <h2>
-            <i class="fas fa-users"></i> 
-            Utilisateurs
-        </h2>
-
-        <a class="btn-green btn-lg" 
-            href="{{ url('users!create') }}" 
-            title="Cliquer pour créer un nouvel utilisateur">
-            Nouvel Utilisateur
-        </a>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Utilisateur</th>
-                    <th>Courriel</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                {% for user in allUsers %}
-                <tr>
-                    <td>
-                        <figure>
-                            <img class="bord-violet" 
-                                src="img/user/{{ user.image }}"
-                                alt="Screenshot of {{ user.name }}">
-                            <figcaption>
-                                {{ user.name }}
-                            </figcaption>
-                        </figure>
-                    </td>
-                    <td>{{ user.email }}</td>
-                    <td>
-                        <a class="btn-blue" 
-                            href="{{ url('users!update', {'id': user.id}) }}"
-                            title="Cliquer pour éditer cet utiliateur">
-                            <i class="fas fa-pen-square fa-fw fa-lg"></i>
-                        </a>
-                        <a class="btn-red" 
-                            href="{{ url('users!delete', {'id': user.id}) }}"
-                            title="Cliquer pour supprimer cet utilisateur">
-                            <i class="fas fa-times-circle fa-fw fa-lg"></i>
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-
-            </tbody>
-        </table>
-    </section>
+    {{ include("back/admin/listResources.twig") }}
+    {{ include("back/admin/listUsers.twig") }}
+    
 </main>
 {% endblock %}

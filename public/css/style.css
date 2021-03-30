@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Geo&amp;family=Rozha+One&amp;family=Syne+Mono&amp;display=swap');
+
 :root {
   --sans-serif: 'Geo', sans-serif;
   --serif: 'Rozha One', serif;
@@ -7,6 +9,15 @@
 
 body {
   --body-background-color: var(--grey-light);
+}
+
+h1,
+h2 {
+  --title-high-color: var(--black);
+}
+
+h3 {
+  --title-high-color: var(--gray);
 }
 
 .navbar {
