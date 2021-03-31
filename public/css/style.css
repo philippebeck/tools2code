@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geo&amp;family=Rozha+One&amp;family=Syne+Mono&amp;display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geo&family=Rozha+One&family=Syne+Mono&display=swap');
 
 :root {
   --sans-serif: 'Geo', sans-serif;
@@ -13,11 +13,11 @@ body {
 
 h1,
 h2 {
-  --title-high-color: var(--black);
+  --title-color: var(--black);
 }
 
 h3 {
-  --title-high-color: var(--gray);
+  --title-color: var(--gray);
 }
 
 .navbar {
@@ -35,10 +35,12 @@ h3 {
 }
 
 .table {
-  --table-row-even-background-color: var(--white);
-  --table-row-even-hover-background-color: var(--sky);
-  --table-row-odd-hover-background-color: var(--sky);
-  --table-row-even-color: var(--gray);
-  --table-row-even-hover-color: var(--black);
-  --table-row-odd-hover-color: var(--black);
+  --table-title-color: var(--green);
+  --table-title-background-color: var(--yellow-light);
+  --table-even-background-color: var(--white);
+  --table-even-hover-background-color: var(--sky);
+  --table-odd-hover-background-color: var(--sky);
+  --table-even-color: var(--gray);
+  --table-even-hover-color: var(--black);
+  --table-odd-hover-color: var(--black);
 }
