@@ -10,13 +10,13 @@
         type="radio" 
         name="navbar">
 
-    <a class="anima-slideR-this" 
+    <a class="anima-slideB-this" 
         href="./" 
         title="Accueil">
         <img src="img/logo.svg" 
         alt="Logo DevsAgency"
-        width="40px"
-        height="40px">
+        width="40"
+        height="40">
     </a>
 
     <ul>
@@ -55,13 +55,12 @@
                 <span>SQL</span>
             </a>
         </li>
-                <li>
+        <li>
             <a href="{{ url('resource', {'technology': 'Git'}) }}" 
                 title="Voir les Ressources Git">
                 <i class="fab fa-git-alt fa-lg"></i>
                 <span>Git</span>
             </a>
-        </li>
         </li>
         <li>
             <a href="{{ url('resource', {'technology': 'Media'}) }}" 
@@ -72,7 +71,7 @@
         </li>
     </ul>
 
-    <ul class="anima-slideL-this">
+    <ul>
     
         {% if (isLogged()) %}
         <li>
@@ -96,28 +95,28 @@
             <a class="onto-color-tw" 
                 href="{{ url('contact') }}" 
                 title="Contact">
-                <i class="fas fa-at fa-lg fa-fw"></i>
+                <i class="fas fa-at fa-lg"></i>
             </a>
         </li>
         <li>
             <a class="onto-color-pink" 
                 href="https://github.com/sponsors/philippebeck" 
                 title="Sponsor">
-                <i class="far fa-heart fa-lg fa-fw"></i>
+                <i class="far fa-heart fa-lg"></i>
             </a>
         </li>
         <li>
             <a class="onto-color-pp" 
                 href="https://www.paypal.me/philippebeck" 
                 title="Donation">
-                <i class="fab fa-paypal fa-lg fa-fw"></i>
+                <i class="fab fa-paypal fa-lg"></i>
             </a>
         </li>
         <li>
             <a class="onto-color-orange" 
                 href="{{ url('auth') }}" 
                 title="Connexion">
-                <i class="fas fa-sign-in-alt fa-lg fa-fw"></i>
+                <i class="fas fa-sign-in-alt fa-lg"></i>
             </a>
         </li>
         {% endif %}

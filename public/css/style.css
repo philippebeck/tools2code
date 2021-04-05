@@ -4,43 +4,25 @@
   --sans-serif: 'Geo', sans-serif;
   --serif: 'Rozha One', serif;
   --monospace: 'Syne Mono', monospace;
+
+  --primary: rgb(38, 77, 228); /* CSS */
+  --primary-dark: rgba(38, 77, 228, var(--opacity-dark));
+  --primary-light: rgba(38, 77, 228, var(--opacity-light));
+
+  --red: rgb(227, 76, 38); /* HTML */
+  --yellow: rgb(240, 219, 79); /* JS */
+  --blue: rgb(119, 123, 179); /* PHP */
+  --cyan: rgb(0, 117, 143); /* SQL */
+
   --shrink: scale(1.5, 1.5);
 }
 
-body {
-  --body-background-color: var(--grey-light);
-}
-
-h1,
-h2 {
-  --title-color: var(--black);
-}
-
-h3 {
-  --title-color: var(--gray);
-}
-
-.navbar {
-  --navbar-background-color: var(--in);
-}
-
 .head {
-  --head-border: medium solid var(--fb);
-  --head-color: var(--tw);
-}
-
-.foot {
-  --foot-list-background-color: var(--pp);
-  --foot-list-link-hover-font-color: var(--orange);
+  --head-border: thick ridge var(--blue);
+  --head-color: var(--cyan);
 }
 
 .table {
-  --table-title-color: var(--green);
-  --table-title-background-color: var(--yellow-light);
-  --table-even-background-color: var(--white);
-  --table-even-hover-background-color: var(--sky);
-  --table-odd-hover-background-color: var(--sky);
-  --table-even-color: var(--gray);
-  --table-even-hover-color: var(--black);
-  --table-odd-hover-color: var(--black);
+  --table-odd-background-color: var(--grey);
+  --table-odd-color: var(--black);
 }
