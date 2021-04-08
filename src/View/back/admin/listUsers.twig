@@ -5,7 +5,7 @@
     </h2>
 
     <a class="btn-green btn-lg" 
-        href="{{ url('users!create') }}" 
+        href="{{ url('user!create') }}" 
         title="Cliquer pour créer un nouvel utilisateur">
         Nouvel Utilisateur
     </a>
@@ -15,7 +15,6 @@
             <tr>
                 <th>Utilisateur</th>
                 <th>Courriel</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -32,15 +31,16 @@
                         </figcaption>
                     </figure>
                 </td>
-                <td>{{ user.email }}</td>
                 <td>
+                    {{ user.email }}
+                    <br>
                     <a class="btn-blue" 
-                        href="{{ url('users!update', {'id': user.id}) }}"
+                        href="{{ url('user!update', {'id': user.id}) }}"
                         title="Cliquer pour éditer cet utiliateur">
                         <i class="fas fa-pen-square fa-fw fa-lg"></i>
                     </a>
                     <a class="btn-red" 
-                        href="{{ url('users!delete', {'id': user.id}) }}"
+                        href="{{ url('user!delete', {'id': user.id}) }}"
                         title="Cliquer pour supprimer cet utilisateur">
                         <i class="fas fa-times-circle fa-fw fa-lg"></i>
                     </a>
