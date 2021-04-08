@@ -5,20 +5,25 @@
   --serif: 'Rozha One', serif;
   --monospace: 'Syne Mono', monospace;
 
-  --primary: rgb(38, 77, 228); /* CSS */
-  --primary-dark: rgba(38, 77, 228, var(--opacity-dark));
-  --primary-light: rgba(38, 77, 228, var(--opacity-light));
+  --primary: rgb(119, 123, 179); /* PHP */
+  --primary-dark: rgba(119, 123, 179, var(--opacity-dark));
+  --primary-light: rgba(119, 123, 179, var(--opacity-light));
   --secondary: rgb(50, 51, 48); /* JS */
   --secondary-dark: rgba(50, 51, 48, var(--opacity-dark));
   --secondary-light: rgba(50, 51, 48, var(--opacity-light));
 
   --red: rgb(227, 76, 38); /* HTML */
-  --blue: rgb(119, 123, 179); /* PHP */
+  --blue: rgb(38, 77, 228); /* CSS */
   --cyan: rgb(0, 117, 143); /* SQL */
 }
 
+h1,
+h2 {
+  --title-color: var(--secondary);
+}
+
 .head {
-  --head-border: thick ridge var(--blue);
+  --head-border: thick solid var(--secondary);
   --head-color: var(--cyan);
 }
 
@@ -26,9 +31,4 @@
   --table-even-background-color: var(--white);
   --table-odd-color: var(--black);
   --table-row-hover-color: var(--white);
-}
-
-.foot {
-  --foot-title-color: var(--yellow);
-  --foot-list-hover-color: var(--orange);
 }
