@@ -5,7 +5,7 @@
     </h2>
 
     <a class="btn-green btn-lg" 
-        href="{{ url('resources!create') }}" 
+        href="{{ url('resource!create') }}" 
         title="Cliquer pour créer une nouvelle ressource">
         Nouvelle Ressource
     </a>
@@ -14,12 +14,11 @@
         <thead>
             <tr>
                 <th>
-                    Id. Nom
+                    Nom
                     <hr>
                     Categorie
                 </th>
                 <th>Description</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,26 +26,24 @@
             {% for resource in allResources %}
             <tr>
                 <td>
-                    <a href="https://{{ resource.link }}" 
+                    <a class="button-primary" 
+                        href="https://{{ resource.link }}" 
                         title="https://{{ resource.link }}">
-                        {{ resource.id }}. {{ resource.name }}
-                        <hr>{{ resource.category }}
+                        {{ resource.name }}
                     </a>
+                    <br>
+                    {{ resource.category }}
                 </td>
                 <td>
-                    <a href="https://{{ resource.link }}" 
-                        title="https://{{ resource.link }}">
-                        {{ resource.description }}
-                    </a>
-                </td>
-                <td>
+                    {{ resource.description }}
+                    <br>
                     <a class="btn-blue" 
-                        href="{{ url('resources!update', {'id': resource.id}) }}"
+                        href="{{ url('resource!update', {'id': resource.id}) }}"
                         title="Cliquer pour éditer cette ressource">
                         <i class="fas fa-pen-square fa-fw fa-lg"></i>
                     </a>
                     <a class="btn-red" 
-                        href="{{ url('resources!delete', {'id': resource.id}) }}"
+                        href="{{ url('resource!delete', {'id': resource.id}) }}"
                         title="Cliquer pour supprimer cette ressource">
                         <i class="fas fa-times-circle fa-fw fa-lg"></i>
                     </a>
