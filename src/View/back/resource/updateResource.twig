@@ -8,7 +8,7 @@
 <main>
     <form class="form" 
         method="post" 
-        action={{ url('resources!update', {'id': resource.id}) }}>
+        action={{ url('resource!update', {'id': resource.id}) }}>
         <fieldset>
             <legend>
                 <i class="fas fa-box-open fa-2x"></i>
@@ -33,7 +33,7 @@
                         name="link" 
                         type="text" 
                         maxlength="100" 
-                        value="{{ resource.link }}"
+                        value="https://{{ resource.link }}"
                         required>
                 </li>
                 <li>

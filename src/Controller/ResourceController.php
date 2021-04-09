@@ -67,6 +67,8 @@ class ResourceController extends MainController
 
             ModelFactory::getModel("Resource")->createData($this->resource);
             $this->getSession()->createAlert("Nouvelle ressource créé avec succès !", "green");
+
+            $this->redirect("admin");
         }
 
         return $this->render("back/resource/createResource.twig");
@@ -121,6 +123,5 @@ class ResourceController extends MainController
         $this->getSession()->createAlert("Suppression de la resource effectuée !", "red");
 
         $this->redirect("admin");
-
     }
 }
