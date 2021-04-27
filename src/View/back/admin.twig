@@ -24,18 +24,18 @@
         </span>
     </label>
     <label for="menu-radio2" 
-        title="Voir les Utilisateurs">
-        <i class="fas fa-users"></i>
+        title="Voir les Administrateurs">
+        <i class="fas fa-user-ninja"></i>
         <span>
-            Utilisateurs
+            Administrateurs
         </span>
     </label>
 </nav>
 
 <main class="menu-relay">
 
-    {{ include("back/admin/listResources.twig") }}
-    {{ include("back/admin/listUsers.twig") }}
+    {{ include("back/adminResources.twig") }}
+    {{ include("back/adminUsers.twig") }}
     
 </main>
 {% endblock %}
