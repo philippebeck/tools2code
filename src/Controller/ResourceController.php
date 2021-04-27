@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
-use Pam\Model\Factory\ModelFactory;
+use Pam\Model\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -27,7 +27,7 @@ class ResourceController extends MainController
      */
     public function defaultMethod()
     {
-        $technology = $this->getGet()->getGetVar("technology");
+        $technology = $this->getGet("technology");
 
         switch ($technology) {
             case 'HTML':
@@ -37,8 +37,8 @@ class ResourceController extends MainController
             case 'SQL':
             case 'Git':
             case 'Media':
-                $allResources   = $this->getArray()->getArrayElements(ModelFactory::getModel("Resource")->listData($technology), "technology");
-                $resources      = $this->getArray()->getArrayElements($allResources[$technology]);
+                $allResources   = $this->getArrayElements(ModelFactory::getModel("Resource")->listData($technology), "technology");
+                $resources      = $this->getArrayElements($allResources[$technology]);
 
                 return $this->render("front/resource.twig", [
                     "resources"     => $resources,
@@ -50,6 +50,17 @@ class ResourceController extends MainController
         }
     }
 
+    private function setResourceData()
+    {
+        $this->resource["link"] = (string) trim($this->getPost("link"));
+        $this->resource["link"] = str_replace("http://", "", $this->resource["link"]);
+        $this->resource["link"] = str_replace("https://", "", $this->resource["link"]);
+
+        $this->resource["name"]         = (string) trim($this->getPost("name"));
+        $this->resource["category"]     = (string) trim($this->getPost("category"));
+        $this->resource["description"]  = (string) trim($this->getPost("description"));
+    }
+
     /**
      * @return string
      * @throws LoaderError
@@ -58,33 +69,24 @@ class ResourceController extends MainController
      */
     public function createMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        if (!empty($this->getPost()->getPostArray())) {
+        if ($this->checkArray($this->getPost())) {
             $this->setResourceData();
 
             ModelFactory::getModel("Resource")->createData($this->resource);
-            $this->getSession()->createAlert("Nouvelle ressource créé avec succès !", "green");
+
+            $this->setSession([
+                "message"   => "Nouvelle ressource créé avec succès !", 
+                "type"      => "green"
+            ]);
 
             $this->redirect("admin");
         }
 
-        return $this->render("back/resource/createResource.twig");
-    }
-
-    private function setResourceData()
-    {
-        $this->resource = $this->getPost()->getPostArray();
-
-        $this->resource["link"] = (string) trim($this->resource["link"]);
-        $this->resource["link"] = str_replace("http://", "", $this->resource["link"]);
-        $this->resource["link"] = str_replace("https://", "", $this->resource["link"]);
-
-        $this->resource["name"]         = (string) trim($this->resource["name"]);
-        $this->resource["category"]     = (string) trim($this->resource["category"]);
-        $this->resource["description"]  = (string) trim($this->resource["description"]);
+        return $this->render("back/createResource.twig");
     }
 
     /**
@@ -95,32 +97,43 @@ class ResourceController extends MainController
      */
     public function updateMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        if (!empty($this->getPost()->getPostArray())) {
+        if ($this->checkArray($this->getPost())) {
             $this->setResourceData();
 
-            ModelFactory::getModel("Resource")->updateData($this->getGet()->getGetVar("id"), $this->resource);
-            $this->getSession()->createAlert("Modification de la ressource réussie !", "blue");
+            ModelFactory::getModel("Resource")->updateData(
+                $this->getGet("id"), 
+                $this->resource
+            );
+
+            $this->setSession([
+                "message"   => "Modification de la ressource réussie !", 
+                "type"      => "blue"
+            ]);
 
             $this->redirect("admin");
         }
 
-        $this->resource = ModelFactory::getModel("Resource")->readData($this->getGet()->getGetVar("id"));
+        $this->resource = ModelFactory::getModel("Resource")->readData($this->getGet("id"));
 
-        return $this->render("back/resource/updateResource.twig", ["resource" => $this->resource]);
+        return $this->render("back/updateResource.twig", ["resource" => $this->resource]);
     }
 
     public function deleteMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        ModelFactory::getModel("Resource")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Suppression de la resource effectuée !", "red");
+        ModelFactory::getModel("Resource")->deleteData($this->getGet("id"));
+
+        $this->setSession([
+            "message"   => "Suppression de la resource effectuée !", 
+            "type"      => "red"
+        ]);
 
         $this->redirect("admin");
     }
