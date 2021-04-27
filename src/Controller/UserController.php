@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
-use Pam\Model\Factory\ModelFactory;
+use Pam\Model\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -30,6 +30,86 @@ class UserController extends MainController
         return $this->render("front/login.twig");
     }
 
+    // ******************** SETTERS ******************** \\
+
+    private function setUserData()
+    {
+        $this->user["name"]     = $this->getPost("name");
+        $this->user["email"]    = $this->getPost("email");
+    }
+
+    private function setUserImage()
+    {
+        $this->user["image"] = $this->getString($this->user["name"]) . $this->getExtension();
+
+        $this->getUploadedFile(
+            "img/user/", 
+            $this->getString($this->user["name"])
+        );
+
+        $this->getThumbnail(
+            "img/user/" . $this->user["image"], 
+            150
+        );
+    }
+
+    private function setUpdateData()
+    {
+        $this->setUserData();
+
+        if ($this->checkArray($this->getFiles("file"), "name")) {
+            $this->setUserImage();
+        }
+
+        if ($this->checkArray($this->getPost(), "old-pass")) {
+            $this->setUpdatePassword();
+        }
+
+        ModelFactory::getModel("User")->updateData(
+            $this->getGet("id"), 
+            $this->user
+        );
+
+        $this->setSession([
+            "message"   => "Modification de l'utilisateur réussie !", 
+            "type"      => "blue"
+        ]);
+
+        $this->redirect("admin");
+    }
+
+    private function setUpdatePassword()
+    {
+        $user = ModelFactory::getModel("User")->readData($this->getGet("id"));
+
+        if (!password_verify($this->getPost("old-pass"), $user["pass"])) {
+
+            $this->setSession([
+                "message"   => "Ancien mot de passe incorrect !", 
+                "type"      => "red"
+            ]);
+
+            $this->redirect("admin");
+        }
+
+        if ($this->getPost("new-pass") !== $this->getPost("conf-pass")) {
+
+            $this->setSession([
+                "message"   => "Les nouveaux mots de passe ne correspondent pas !", 
+                "type"      => "red"
+            ]);
+
+            $this->redirect("admin");
+        }
+
+        $this->user["pass"] = password_hash(
+            $this->getPost("new-pass"), 
+            PASSWORD_DEFAULT
+        );
+    }
+
+    // ******************** CRUD ******************** \\
+
     /**
      * @return string
      * @throws LoaderError
@@ -38,43 +118,41 @@ class UserController extends MainController
      */
     public function createMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        if (!empty($this->getPost()->getPostArray())) {
+        if ($this->checkArray($this->getPost())) {
+
             $this->setUserData();
             $this->setUserImage();
 
-            if ($this->getPost()->getPostVar("pass") !== $this->getPost()->getPostVar("conf-pass")) {
-                $this->getSession()->createAlert("Les mots de passe ne correspondent pas !", "red");
+            if ($this->getPost("pass") !== $this->getPost("conf-pass")) {
+
+                $this->setSession([
+                    "message"   => "Les mots de passe ne correspondent pas !", 
+                    "type"      => "red"
+                ]);
 
                 $this->redirect("user!create");
             }
 
-            $this->user["pass"] = password_hash($this->getPost()->getPostVar("pass"), PASSWORD_DEFAULT);
+            $this->user["pass"] = password_hash(
+                $this->getPost("pass"), 
+                PASSWORD_DEFAULT
+            );
 
             ModelFactory::getModel("User")->createData($this->user);
-            $this->getSession()->createAlert("Nouvel utilisateur créé avec succès !", "green");
+
+            $this->setSession([
+                "message"   => "Nouvel utilisateur créé avec succès !", 
+                "type"      => "green"
+            ]);
 
             $this->redirect("admin");
         }
 
-        return $this->render("back/user/createUser.twig");
-    }
-
-    private function setUserData()
-    {
-        $this->user["name"]     = $this->getPost()->getPostVar("name");
-        $this->user["email"]    = $this->getPost()->getPostVar("email");
-    }
-
-    private function setUserImage()
-    {
-        $this->user["image"] = $this->getString()->cleanString($this->user["name"]) . $this->getFiles()->setFileExtension();
-
-        $this->getFiles()->uploadFile("img/user/", $this->getString()->cleanString($this->user["name"]));
-        $this->getImage()->makeThumbnail("img/user/" . $this->user["image"], 150);
+        return $this->render("back/createUser.twig");
     }
 
     /**
@@ -85,64 +163,31 @@ class UserController extends MainController
      */
     public function updateMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        if (!empty($this->getPost()->getPostArray())) {
+        if ($this->checkArray($this->getPost())) {
             $this->setUpdateData();
         }
 
-        $user = ModelFactory::getModel("User")->readData($this->getGet()->getGetVar("id"));
+        $user = ModelFactory::getModel("User")->readData($this->getGet("id"));
 
-        return $this->render("back/user/updateUser.twig", ["user" => $user]);
-    }
-
-    private function setUpdateData()
-    {
-        $this->setUserData();
-
-        if (!empty($this->getFiles()->getFileVar("name"))) {
-            $this->setUserImage();
-        }
-
-        if (!empty($this->getPost()->getPostVar("old-pass"))) {
-            $this->setUpdatePassword();
-        }
-
-        ModelFactory::getModel("User")->updateData($this->getGet()->getGetVar("id"), $this->user);
-        $this->getSession()->createAlert("Modification de l'utilisateur réussie !", "blue");
-
-        $this->redirect("admin");
-    }
-
-    private function setUpdatePassword()
-    {
-        $user = ModelFactory::getModel("User")->readData($this->getGet()->getGetVar("id"));
-
-        if (!password_verify($this->getPost()->getPostVar("old-pass"), $user["pass"])) {
-            $this->getSession()->createAlert("Ancien mot de passe incorrect !", "red");
-
-            $this->redirect("admin");
-        }
-
-        if ($this->getPost()->getPostVar("new-pass") !== $this->getPost()->getPostVar("conf-pass")) {
-            $this->getSession()->createAlert("Les nouveaux mots de passe ne correspondent pas !", "red");
-
-            $this->redirect("admin");
-        }
-
-        $this->user["pass"] = password_hash($this->getPost()->getPostVar("new-pass"), PASSWORD_DEFAULT);
+        return $this->render("back/updateUser.twig", ["user" => $user]);
     }
 
     public function deleteMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        ModelFactory::getModel("User")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Suppression de l'utilisateur effectuée !", "red");
+        ModelFactory::getModel("User")->deleteData($this->getGet("id"));
+
+        $this->setSession([
+            "message"   => "Suppression de l'utilisateur effectuée !", 
+            "type"      => "red"
+        ]);
 
         $this->redirect("admin");
     }

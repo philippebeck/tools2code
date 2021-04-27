@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
-use Pam\Model\Factory\ModelFactory;
+use Pam\Model\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -22,16 +22,16 @@ class AdminController extends MainController
      */
     public function defaultMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        $allResources   = ModelFactory::getModel("Resource")->listData();
-        $allUsers       = ModelFactory::getModel("User")->listData();
+        $resources  = ModelFactory::getModel("Resource")->listData();
+        $users      = ModelFactory::getModel("User")->listData();
 
-        return $this->render("back/admin/admin.twig", [
-            "allResources"  => $allResources,
-            "allUsers"      => $allUsers
+        return $this->render("back/admin.twig", [
+            "resources" => $resources,
+            "users"     => $users
         ]);
     }
 }
