@@ -37,8 +37,10 @@ class ResourceController extends MainController
             case 'SQL':
             case 'Git':
             case 'Media':
-                $allResources   = $this->getArrayElements(ModelFactory::getModel("Resource")->listData($technology), "technology");
-                $resources      = $this->getArrayElements($allResources[$technology]);
+                $allResources = $this->getArrayElements(ModelFactory::getModel("Resource")
+                    ->listData($technology), "technology");
+
+                $resources = $this->getArrayElements($allResources[$technology]);
 
                 return $this->render("front/resource.twig", [
                     "resources"     => $resources,
@@ -56,10 +58,11 @@ class ResourceController extends MainController
         $this->resource["link"] = str_replace("http://", "", $this->resource["link"]);
         $this->resource["link"] = str_replace("https://", "", $this->resource["link"]);
 
-        $this->resource["name"]         = (string) trim($this->getPost("name"));
-        $this->resource["category"]     = (string) trim($this->getPost("category"));
-        $this->resource["technology"]   = (string) trim($this->getPost("technology"));
-        $this->resource["description"]  = (string) trim($this->getPost("description"));
+        $this->resource["technology"] = (string) trim($this->getPost("technology"));
+
+        $this->resource["name"]         = (string) addslashes(trim($this->getPost("name")));
+        $this->resource["category"]     = (string) addslashes(trim($this->getPost("category")));
+        $this->resource["description"]  = (string) addslashes(trim($this->getPost("description")));
     }
 
     /**
