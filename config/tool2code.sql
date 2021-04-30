@@ -6,7 +6,7 @@ USE `tools2code`;
 CREATE TABLE `Resource`
 (
   `id`          SMALLINT        UNSIGNED    PRIMARY KEY AUTO_INCREMENT,
-  `name`        VARCHAR(30)     NOT NULL    UNIQUE,
+  `name`        VARCHAR(30)     NOT NULL,
   `link`        VARCHAR(100)    NOT NULL    UNIQUE,
   `technology`  VARCHAR(5)      NOT NULL,
   `category`    VARCHAR(30)     NOT NULL,
