@@ -58,6 +58,7 @@ class ResourceController extends MainController
 
         $this->resource["name"]         = (string) trim($this->getPost("name"));
         $this->resource["category"]     = (string) trim($this->getPost("category"));
+        $this->resource["technology"]   = (string) trim($this->getPost("technology"));
         $this->resource["description"]  = (string) trim($this->getPost("description"));
     }
 
