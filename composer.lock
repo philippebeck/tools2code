@@ -69,6 +69,7 @@
                 "superglobals",
                 "twig"
             ],
+            "abandoned": "philippebeck/pam",
             "time": "2022-03-29T17:36:30+00:00"
         },
         {
@@ -879,22 +880,22 @@
     "packages-dev": [
         {
             "name": "tracy/tracy",
-            "version": "v2.9.1",
+            "version": "v2.9.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "4180b3221ff852fe10d5eab30d80be6f6ab7221e"
+                "reference": "80533f4bda19ce8138c0fc984743533e2a0e1c5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/4180b3221ff852fe10d5eab30d80be6f6ab7221e",
-                "reference": "4180b3221ff852fe10d5eab30d80be6f6ab7221e",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/80533f4bda19ce8138c0fc984743533e2a0e1c5c",
+                "reference": "80533f4bda19ce8138c0fc984743533e2a0e1c5c",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-session": "*",
-                "php": ">=7.2 <8.2"
+                "php": ">=7.2 <8.3"
             },
             "conflict": {
                 "nette/di": "<3.0"
@@ -945,7 +946,7 @@
                 "nette",
                 "profiler"
             ],
-            "time": "2022-02-15T16:38:30+00:00"
+            "time": "2023-02-06T15:31:40+00:00"
         }
     ],
     "aliases": [],
